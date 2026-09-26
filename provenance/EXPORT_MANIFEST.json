@@ -8505,11 +8505,17 @@
       "pre_layout_path": "SpaceConflict/datasets.yaml"
     },
     {
-      "exported_sha256": "d96416eaa2f85465fba4beb3a195ed5dba64b7ab648d7602bc34b967f565d4d5",
+      "exported_sha256": "1724408b41e424852c8df59a780f984a2f4a4f9a9678c29c16d3ceddb7e56db6",
       "path": "docs/historical/paper_SpaceConflict_Dataset_Construction_Report_CN.md",
       "privacy_transformed": true,
       "source_class": "existing_project_artifact",
-      "source_sha256": "ee5e55dbbd8c0c42af1dfebbaf50b6b2070b9e9e6732eb997f83cacaef02823e"
+      "source_sha256": "ee5e55dbbd8c0c42af1dfebbaf50b6b2070b9e9e6732eb997f83cacaef02823e",
+      "documentation_update": {
+        "date": "2026-09-26",
+        "basis": "Researcher confirmation that benchmark human annotation verification is complete",
+        "previous_exported_sha256": "d96416eaa2f85465fba4beb3a195ed5dba64b7ab648d7602bc34b967f565d4d5",
+        "scope": "Public documentation only; original source and historical experiment review records unchanged"
+      }
     },
     {
       "exported_sha256": "ead96fc11904d37a65af2f28fc059162a59911850940b2e596abcd136a3ea0aa",

@@ -9,3 +9,7 @@ L1–L3 and L4 were constructed through different versioned pipelines. Do not re
 The upstream raw datasets and 25+ GiB media evaluation bundle are **not** included in this code/annotation package. Source references, hashes and existing reconstruction scripts are included. Obtain images under the appropriate upstream terms; provide a mapping from exported media locator to local file, then use `tools/resolve_media.py`. Reconstruction provenance may refer to external upstream annotations that are likewise not bundled.
 
 `world_groups.jsonl` records the existing grouping; `exclusions.jsonl` preserves excluded cases. Do not generate a new item-random split. Public test answers do not authorize using test worlds or cross-source aliases in training.
+
+## Human annotation verification
+
+The SpaceConflict benchmark has completed human annotation verification, as confirmed by the researcher. This public documentation update is dated 2026-09-26. Historical `AUTO_ACCEPTED` fields record automated construction checks; they do not mean that human verification was absent. Review or waiver records for later diagnostic derivatives apply to those experiments, not to the original benchmark. No independent double-annotation protocol, reviewer count or inter-annotator agreement is claimed here without supporting records. This documentation update does not alter gold, data splits, model results or historical audit records.
