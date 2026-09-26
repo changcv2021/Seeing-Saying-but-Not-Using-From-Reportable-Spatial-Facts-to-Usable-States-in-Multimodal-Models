@@ -1,0 +1,24 @@
+dataset_name: embodiedbench
+contract_version: "0.0-disabled"
+enabled: false
+reason: simulator_oracle_pipeline_not_enabled
+world_unit: {keys: [], media_group: interactive_episode}
+native_gt_sources: []
+node_types: []
+native_fact_rules: []
+qa_to_fact_rules: []
+identity_policy: {merge_allowed_when: [], merge_forbidden_when: [model_trajectory_only]}
+reference_frame_policy: unverified
+time_scope_policy: unverified
+state_branch_policy: requires_simulator_oracle
+observability_policy: unverified
+allowed_predicates: []
+authorized_rules: []
+allowed_levels: []
+allowed_tracks: []
+valid_level_track_cells: {}
+allowed_operators: []
+forbidden_tasks: [all_without_simulator_oracle]
+reject_conditions: [simulator_oracle_missing]
+redistribution_policy: disabled
+

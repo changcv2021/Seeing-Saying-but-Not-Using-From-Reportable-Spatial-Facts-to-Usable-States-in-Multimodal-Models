@@ -1,0 +1,104 @@
+{
+  "campaign_id": "qwen35_9b_format_v1_20260906",
+  "seed": 20260904,
+  "source_run": "artifacts/model_results/qwen2_5_vl_7b/full_release_qwen35judge_v2_scans_20260905",
+  "expected_inputs": 24196,
+  "expected_smoke": 96,
+  "input_hashes": {
+    "requests.jsonl": "0420b3e6db36fa09157cbf6db0c19b8773dfba61d1b52e3b22e475ec0e5c59b8",
+    "smoke.jsonl": "d2db0b6bd658bd0d6953563b947affac7c4f4c6cea33d34b147ac1613f677956",
+    "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+    "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+    "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "decode": {
+    "do_sample": false,
+    "enable_thinking": false,
+    "max_new_tokens": 256
+  },
+  "media_budget": {
+    "min_pixels": 100352,
+    "max_pixels": 401408,
+    "video_max_pixels": 200704,
+    "video_frames": 16,
+    "image_patch_size": 16
+  },
+  "vision_helper_sha256": "f3710ced8ffe735da57d08cf5236cf9d326ff646ed1bdad2e62593a7801adc33",
+  "inference_shards": 16,
+  "judge_shards": 8,
+  "parallel_shards_per_model": 2,
+  "judge_id": "Qwen/Qwen3.5-4B",
+  "judge_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "judge_bias_note": "Same-family judge for all models; 4B candidate is also the judge checkpoint. Rubric scores are auxiliary, identity-blinded, not independent ground-truth validation.",
+  "formal_metrics": [
+    "Claim Accuracy",
+    "Balanced Accuracy",
+    "Macro-F1",
+    "Pair Accuracy",
+    "Unknown F1"
+  ],
+  "auxiliary_metrics": [
+    "Explanation Rubric Score"
+  ],
+  "models": [
+    {
+      "key": "qwen35_9b",
+      "model": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "model_path": "models/Qwen3.5-9B",
+      "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen35_9b.json",
+      "gpus": 1,
+      "cpus": 4,
+      "ram": "64G",
+      "smoke_wall": "01:00:00",
+      "infer_wall": "06:00:00"
+    }
+  ],
+  "prompt_version": "bare_json_brief_v1",
+  "protocol_change_note": "Qwen3.5-9B retry adds a uniform output-format suffix to all its requests (no Markdown fences; reason at most 40 words). Original 4B/27B use the original prompt. This is a mixed-prompt diagnostic comparison, NOT a controlled scale-only comparison. No gold, media, decoding, parsing or scoring rules changed.",
+  "comparison_models": [
+    {
+      "key": "qwen35_4b",
+      "model": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "model_path": "external/scratch/industbench_qwen35_judge/model/Qwen3.5-4B",
+      "manifest_path": "external/scratch/industbench_qwen35_judge/model_manifest.json",
+      "gpus": 1,
+      "cpus": 4,
+      "ram": "64G",
+      "smoke_wall": "01:00:00",
+      "infer_wall": "06:00:00",
+      "report_root": "artifacts/model_results/qwen35_scale_20260906/qwen35_4b"
+    },
+    {
+      "key": "qwen35_9b",
+      "model": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "model_path": "models/Qwen3.5-9B",
+      "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen35_9b.json",
+      "gpus": 1,
+      "cpus": 4,
+      "ram": "64G",
+      "smoke_wall": "01:00:00",
+      "infer_wall": "06:00:00",
+      "report_root": "artifacts/model_results/qwen35_9b_format_v1_20260906/qwen35_9b"
+    },
+    {
+      "key": "qwen35_27b",
+      "model": "Qwen/Qwen3.5-27B",
+      "revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+      "model_path": "models/Qwen3.5-27B",
+      "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen35_27b.json",
+      "gpus": 2,
+      "cpus": 8,
+      "ram": "128G",
+      "smoke_wall": "02:00:00",
+      "infer_wall": "12:00:00",
+      "report_root": "artifacts/model_results/qwen35_scale_20260906/qwen35_27b"
+    }
+  ],
+  "comparison_external_dependencies": [
+    "8163721",
+    "8163733"
+  ]
+}

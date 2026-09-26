@@ -1,0 +1,53 @@
+contract_name: spaceconflict_l4_three_part
+contract_version: "3.0"
+normative_guide: SpaceConflict_L4_Three_Part_Build_Guide_CN.md
+world_unit: hypo3d:base_scene_id
+origins: [SOURCE_NATIVE, BENCHMARK_CONTROLLED]
+native_subtypes: [DIRECT, AGGREGATED]
+dependency_types: [CORE, CALIBRATION]
+unknown_origins: [EVIDENCE_ABLATION, SOURCE_UNDERSPECIFICATION]
+allowed_transition_families: [REMOVAL, ADDITION, REPLACEMENT, MOVEMENT, ATTRIBUTE, INVARIANT]
+controlled_actions:
+  - REMOVE_AND_RECOUNT
+  - ADD_AND_RECOUNT
+  - REPLACE_AND_RECOUNT
+  - REPLACEMENT_IDENTITY
+  - MOVE_TO_OPPOSITE_SIDE
+  - SWAP_POSITIONS
+controlled_truth:
+  pre_state_provenance: SOURCE_NATIVE_GT
+  intervention_provenance: SPACECONFLICT_CONTROLLED_DSL
+  post_state_provenance: DETERMINISTIC_TRANSITION_ENGINE
+  require_independent_engines: true
+  require_exact_engine_agreement: true
+native_truth:
+  pre_state_provenance: SOURCE_NATIVE_GT
+  intervention_provenance: HYPO3D_SOURCE_CHANGE
+  post_state_provenance: HYPO3D_SOURCE_QA
+unknown_reasons:
+  - MISSING_PRE_STATE_FACT
+  - MISSING_PRE_COUNT
+  - AMBIGUOUS_INTERVENTION_TARGET
+  - MISSING_TARGET_GROUNDING
+  - REFERENCE_FRAME_AMBIGUITY
+  - POST_STATE_UNDERSPECIFIED
+  - UNRESOLVED_POST_IDENTITY
+  - MISSING_INVARIANT_EVIDENCE
+  - MULTIPLE_VALID_TRANSITIONS
+  - EVIDENCE_ABLATION
+quality_gates:
+  source_hash: required
+  media_resolvable: required
+  intervention_visible: required_for_binary
+  target_unique: required
+  transition_replay: required
+  co_truth_possible: false
+  requires_unprovided_fact: false
+  graph_text_roundtrip: required
+  independent_verifier: required
+  world_split: required
+  human_acceptance: forbidden
+release_policy:
+  media_redistribution: false
+  source_references_and_local_generation_only: true
+

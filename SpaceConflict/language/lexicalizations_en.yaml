@@ -1,0 +1,10 @@
+version: "1.0"
+predicates:
+  LEFT_OF: [is left of, is positioned to the left of, lies on the left side of]
+  RIGHT_OF: [is right of, is positioned to the right of, lies on the right side of]
+  ABOVE: [is above, is positioned over, lies higher than]
+  BELOW: [is below, is positioned under, lies lower than]
+  INSIDE: [is inside, is contained in, lies within]
+  BEFORE: [appears before, occurs before, precedes]
+  AFTER: [appears after, occurs after, follows]
+

@@ -1,0 +1,20 @@
+registry_version: "1.2"
+extends: operator_registry.v1.1.yaml@1.1
+change_policy: additive_versioned_extension
+operators:
+  - operator_id: SUBJECT_OBJECT_SWAP
+    version: "1.2"
+    family: entity_binding
+    subtype: asymmetric_relation_role_swap
+    applicable_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+    forbidden_predicates: [TOUCHING]
+    required_gt_fields: [explicit_asymmetric_relation]
+    required_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY]
+    changed_slots: [subject_id, object_id]
+    preserved_slots: [predicate, media_id, view_id, reference_frame, time_scope, state_id, branch_id, scope]
+    allowed_levels: [L1]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [XFORM-PROJ]
+    proof_template: subject_object_swap_v1
+    rejection_checks: [asymmetric_predicate_required, subject_object_must_differ, same_context_required, co_truth_must_be_false]

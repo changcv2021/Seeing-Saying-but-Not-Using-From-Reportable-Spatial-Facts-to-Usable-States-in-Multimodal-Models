@@ -1,0 +1,38 @@
+test_contradictory (test_tools.EvidenceTests.test_contradictory) ... ok
+test_empty_not_unknown (test_tools.EvidenceTests.test_empty_not_unknown) ... ok
+test_insufficient_exact (test_tools.EvidenceTests.test_insufficient_exact) ... ok
+test_null_not_world_value (test_tools.EvidenceTests.test_null_not_world_value) ... ok
+test_partial_evidence_can_refute (test_tools.EvidenceTests.test_partial_evidence_can_refute) ... ok
+test_supported (test_tools.EvidenceTests.test_supported) ... ok
+test_bool_not_integer (test_tools.JsonTests.test_bool_not_integer) ... ok
+test_duplicate_rejected (test_tools.JsonTests.test_duplicate_rejected) ... ok
+test_hash_key_order_independent (test_tools.JsonTests.test_hash_key_order_independent) ... ok
+test_nan_rejected (test_tools.JsonTests.test_nan_rejected) ... ok
+test_nested_duplicate_rejected (test_tools.JsonTests.test_nested_duplicate_rejected) ... ok
+test_unique_alias_not_implicitly_repaired (test_tools.JsonTests.test_unique_alias_not_implicitly_repaired) ... ok
+test_changed_example_blocks_package (test_tools.PackageTests.test_changed_example_blocks_package) ... ok
+test_duplicate_response_blocks (test_tools.PackageTests.test_duplicate_response_blocks) ... ok
+test_existing_zip_not_overwritten (test_tools.PackageTests.test_existing_zip_not_overwritten) ... ok
+test_full_archive_and_hashes (test_tools.PackageTests.test_full_archive_and_hashes) ... ok
+test_missing_ref_blocks_package (test_tools.PackageTests.test_missing_ref_blocks_package) ... ok
+test_cost_nan_blocked (test_tools.PlanningTests.test_cost_nan_blocked) ... ok
+test_cost_uses_gpu_count (test_tools.PlanningTests.test_cost_uses_gpu_count) ... ok
+test_planned_counts (test_tools.PlanningTests.test_planned_counts) ... ok
+test_walltime (test_tools.PlanningTests.test_walltime) ... ok
+test_afterany_not_inference_gate (test_tools.SchedulerTests.test_afterany_not_inference_gate) ... ok
+test_gate_hash_blocks (test_tools.SchedulerTests.test_gate_hash_blocks) ... ok
+test_other_arrays_count_toward_global_cap (test_tools.SchedulerTests.test_other_arrays_count_toward_global_cap) ... ok
+test_reserved_budget_includes_pending (test_tools.SchedulerTests.test_reserved_budget_includes_pending) ... ok
+test_submission_command_spaces_are_arguments (test_tools.SchedulerTests.test_submission_command_spaces_are_arguments) ... ok
+test_unresolved_authority_blocks (test_tools.SchedulerTests.test_unresolved_authority_blocks) ... ok
+test_valid_wave_reservation (test_tools.SchedulerTests.test_valid_wave_reservation) ... ok
+test_cross_split_blocked (test_tools.SplitTests.test_cross_split_blocked) ... ok
+test_duplicate_record_blocked (test_tools.SplitTests.test_duplicate_record_blocked) ... ok
+test_exposed_validation_blocked (test_tools.SplitTests.test_exposed_validation_blocked) ... ok
+test_history_is_discovery_not_holdout (test_tools.SplitTests.test_history_is_discovery_not_holdout) ... ok
+test_same_world_conditions_allowed (test_tools.SplitTests.test_same_world_conditions_allowed) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 0.066s
+
+OK

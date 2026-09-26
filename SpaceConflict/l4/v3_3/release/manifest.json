@@ -1,0 +1,104 @@
+{
+  "balanced_test_count": 225,
+  "balanced_test_origin_counts": {
+    "BENCHMARK_CONTROLLED": 161,
+    "SOURCE_NATIVE": 64
+  },
+  "balanced_test_soft_target": [
+    250,
+    350
+  ],
+  "balanced_test_soft_target_met": false,
+  "binary_claim_count": 2272,
+  "binary_pair_count": 1136,
+  "calibration_fraction": 0.09595070422535211,
+  "config_snapshot": {
+    "acceptable_binary_range": [
+      800,
+      1300
+    ],
+    "binary_target": [
+      1100,
+      1300
+    ],
+    "calibration_max_fraction": 0.15,
+    "contract": "contracts/l4_three_part_v3.yaml",
+    "controlled_absolute_max_fraction": 0.75,
+    "controlled_ideal_max_fraction": 0.7,
+    "controlled_target": [
+      700,
+      800
+    ],
+    "media_redistribution": false,
+    "native_target": [
+      400,
+      500
+    ],
+    "quality_over_quota": true,
+    "schema_version": "l4_release_v3",
+    "seed": 20260829,
+    "test_binary_target": [
+      250,
+      350
+    ],
+    "test_origin_target": {
+      "controlled": 0.6,
+      "native": 0.4
+    },
+    "unknown_target": [
+      300,
+      400
+    ]
+  },
+  "controlled_fraction": 0.6338028169014085,
+  "full_test_pair_count": 225,
+  "grounding_counts": {
+    "UNIQUE_REFERENCE": 1136
+  },
+  "input_hashes": {
+    "./SpaceConflict/configs/l4_release_v3.yaml": "sha256:f0f03f4d6a0343ef064fcc88621961811434bc649de84b9ddb2555c8a7256712",
+    "./SpaceConflict/l4/v3_3/controlled/full/accepted/gold.l4_controlled_v3.jsonl": "sha256:5b7a1949c60d888d7183f5f91a133aad13bf9ea4ab2eac843b1f61a9102bdb7b",
+    "./SpaceConflict/l4/v3_3/controlled/full/accepted/model_inputs.l4_controlled_v3.jsonl": "sha256:1bf46098cea75303396b54fb13e2dc843aab533d6e5e13d9854b6cad214c0090",
+    "./SpaceConflict/l4/v3_3/controlled/full/accepted/pairs.l4_controlled_v3.jsonl": "sha256:701918b43e0cfc2390c7298fae7f3b33306065c00627b51fcca42199b9098088",
+    "./SpaceConflict/l4/v3_3/native/accepted/gold.l4_native_v3.jsonl": "sha256:b7946c7faa75863b26514aae45687aa92ff822c0d48a67393d56f185a89b3703",
+    "./SpaceConflict/l4/v3_3/native/accepted/model_inputs.l4_native_v3.jsonl": "sha256:0d2ba3eed31c1d1f0d32b01ba9140090a3615baa004cae183d506abfbe740e36",
+    "./SpaceConflict/l4/v3_3/native/accepted/pairs.l4_native_v3.jsonl": "sha256:5339a35f1a295fa83485d971748f9135316515ae97ae8a9ea205b77f26419687",
+    "./SpaceConflict/l4/v3_3/unknown/accepted/claims.l4_unknown_v3.jsonl": "sha256:82f62083a9c05ea9f5508ad471093d557d6a7669a8a19c0f8b53b39044f597ad",
+    "./SpaceConflict/l4/v3_3/unknown/accepted/gold.l4_unknown_v3.jsonl": "sha256:3f0282e1b23679e7f551dcdc4c9721ba9aecc45dfc78c5449fd2ead153d43a75",
+    "./SpaceConflict/l4/v3_3/unknown/accepted/model_inputs.l4_unknown_v3.jsonl": "sha256:fc727b8cd7ca07e61eb1b0ad8abe3fa2c03dbc741f5bc4acb9fa8722176b1571"
+  },
+  "max_test_pairs_per_world": 2,
+  "max_test_pairs_per_world_family": 1,
+  "media_redistributed": false,
+  "origin_counts": {
+    "Controlled-Calibration": 90,
+    "Controlled-Core": 630,
+    "Native-Aggregated": 215,
+    "Native-Direct": 201
+  },
+  "quality_gate_errors": [],
+  "run_id": "l4_v3_3_release_20260829",
+  "schema_version": "spaceconflict_l4_three_part_release_v3",
+  "seed": 20260829,
+  "split_counts": {
+    "dev": 202,
+    "test": 225,
+    "train": 709
+  },
+  "status": "L4_THREE_PART_RELEASE_VALID",
+  "transition_family_counts": {
+    "ADDITION": 178,
+    "ATTRIBUTE": 3,
+    "MOVEMENT": 556,
+    "REMOVAL": 196,
+    "REPLACEMENT": 203
+  },
+  "unknown_claim_count": 300,
+  "unknown_split_counts": {
+    "dev": 52,
+    "test": 66,
+    "train": 182
+  },
+  "upstream_acquisition_required": true,
+  "world_count": 441
+}

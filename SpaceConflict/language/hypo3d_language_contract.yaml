@@ -1,0 +1,6 @@
+dataset: hypo3d
+version: "1.0-draft"
+families: [pre_intervention, post_intervention, hypothetical_branch, changed_state]
+required_context: [state_id, branch_id, intervention_target_when_relevant]
+forbidden: [unstated_invariant, commonsense_transition, branch_elision]
+

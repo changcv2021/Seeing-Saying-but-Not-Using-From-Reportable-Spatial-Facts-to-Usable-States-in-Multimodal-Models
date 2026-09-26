@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/claim_graph.schema.json",
+  "type": "object",
+  "required": ["claim_graph_id", "label", "atoms", "context"],
+  "properties": {
+    "claim_graph_id": {"type": "string"},
+    "label": {"enum": ["SUPPORTED", "CONTRADICTORY", "UNKNOWN"]},
+    "atoms": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["atom_id", "subject", "predicate", "polarity"], "properties": {"atom_id": {"type": "string"}, "subject": {"type": "string"}, "predicate": {"type": "string"}, "object": {"type": ["string", "null"]}, "value": {}, "polarity": {"enum": ["positive", "negative"]}}, "additionalProperties": true}},
+    "context": {"type": "object"}
+  },
+  "additionalProperties": false
+}
+

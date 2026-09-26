@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/prediction.schema.json",
+  "title": "SpaceConflict prediction",
+  "type": "object",
+  "required": [
+    "sample_id",
+    "label",
+    "conflict_location",
+    "evidence",
+    "justification_steps",
+    "correction",
+    "unknown_reason",
+    "confidence"
+  ],
+  "properties": {
+    "sample_id": {"type": "string", "minLength": 1},
+    "label": {"enum": ["SUPPORTED", "CONTRADICTORY", "UNKNOWN"]},
+    "conflict_location": {
+      "type": "object",
+      "required": ["slots", "claim_fragments"],
+      "properties": {
+        "slots": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "claim_fragments": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["media_ref", "entity_ref", "observation"],
+        "properties": {
+          "media_ref": {"type": "string", "minLength": 1},
+          "entity_ref": {"type": "string"},
+          "observation": {"type": "string"},
+          "fact_id": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "justification_steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "statement"],
+        "properties": {
+          "type": {"type": "string", "minLength": 1},
+          "statement": {"type": "string"},
+          "premise_fact_ids": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "uniqueItems": true
+          },
+          "rule_id": {"type": "string", "minLength": 1},
+          "conclusion": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "correction": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["normalized", "text", "changed_slots"],
+          "properties": {
+            "normalized": {"type": "object"},
+            "text": {"type": "string"},
+            "changed_slots": {
+              "type": "array",
+              "items": {"type": "string", "minLength": 1},
+              "uniqueItems": true
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "unknown_reason": {"type": ["string", "null"]},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "source_qa_correct": {
+      "description": "Optional result of the model's original-source-QA probe, used only for conditional contradiction detection.",
+      "type": "boolean"
+    },
+    "paraphrase_group_id": {
+      "description": "Optional externally supplied group identifier for a paraphrase evaluation export.",
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

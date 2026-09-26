@@ -1,0 +1,5 @@
+rules_version: "1.0"
+rules:
+  - {rule_id: EXPLICIT_IDENTITY_LINK, kind: equivalence, allowed_evidence: [native_instance_id, track_id, marker_id, annotation_id, replacement_map]}
+forbidden_evidence: [class_name_only, color_only, appearance_similarity, free_text_coreference]
+

@@ -1,0 +1,39 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+target_pairs: 10000
+unknown_claims: 2000
+level_targets: {L1: 2000, L2: 2000, L3: 3500, L4: 2500}
+dataset_level_targets:
+  spar: {L1: 1100, L2: 1000, L3: 800, L4: 0}
+  ca_vqa: {L1: 800, L2: 800, L3: 900, L4: 0}
+  vsi_bench: {L1: 50, L2: 150, L3: 1300, L4: 0}
+  sti_bench: {L1: 0, L2: 0, L3: 300, L4: 0}
+  omnispatial: {L1: 50, L2: 50, L3: 200, L4: 200}
+  hypo3d: {L1: 0, L2: 0, L3: 0, L4: 2300}
+primary_track_targets: {GEO-TOPO: 0.32, XFORM-PROJ: 0.23, IDENTITY: 0.14, DYNAMIC: 0.25, EMBODIED-OBS: 0.06}
+primary_track_tolerance: 0.04
+modality_targets: {single_image_or_top_view: 0.35, multi_view_or_ordered_frames: 0.30, continuous_video: 0.35}
+semantic_constraints:
+  min_nonpredicate_corruption_ratio: 0.70
+  max_predicate_complement_ratio: 0.20
+  max_pairs_per_test_world: 4
+  max_pairs_per_test_world_level: 2
+  max_pairs_per_source_fact: 2
+language_constraints:
+  candidates_per_pair: 3
+  common_realization_ratio: 0.70
+  dataset_specific_ratio: 0.30
+  max_family_ratio_per_cell: 0.30
+  max_family_ratio_global: 0.20
+  paraphrase_slice_ratio: 0.12
+validation:
+  require_source_reconstruction: true
+  require_provenance_coverage: true
+  require_graph_satisfiable: true
+  require_claim_entailment: true
+  require_contradiction_proof: true
+  require_graph_text_roundtrip: true
+  require_independent_verifier: true
+  require_human_audit: false
+

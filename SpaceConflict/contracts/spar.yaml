@@ -1,0 +1,23 @@
+dataset_name: spar
+contract_version: "1.0-draft"
+world_unit: {keys: [base_dataset, scene_id], media_group: scene_or_sample_local}
+media_grouping: [single_image, multi_view_images, ordered_multi_frame, continuous_video]
+native_gt_sources: [task_type, image_ids, video_ids, marker_grounding, camera_metadata]
+node_types: [WORLD, VIEW, FRAME, CAMERA, OBJECT, MARKER]
+native_fact_rules: [native_relation_with_explicit_entity_grounding]
+qa_to_fact_rules: [relation_classification, entity_choice, exact_count, camera_motion, view_change, position_match]
+identity_policy: {merge_allowed_when: [native_instance_id, marker_id, annotation_id], merge_forbidden_when: [category_only, color_only, natural_language_coreference_only]}
+reference_frame_policy: explicit_source_frame_only
+time_scope_policy: source_declared_only
+state_branch_policy: observed_actual_only
+observability_policy: source_task_media_must_resolve
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, INSIDE, CONTAINS, TOUCHING, BEFORE, AFTER, COUNT]
+authorized_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY, AUTHORIZED_DIRECTION_TRANSITIVITY]
+allowed_levels: [L1, L2, L3]
+allowed_tracks: [GEO-TOPO, XFORM-PROJ, IDENTITY]
+valid_level_track_cells: {L1: [GEO-TOPO], L2: [GEO-TOPO], L3: [XFORM-PROJ, IDENTITY, GEO-TOPO]}
+allowed_operators: [DIRECT_ENTITY_REBIND, SUBJECT_OBJECT_SWAP, RELATION_GRAPH_UNSAT, CONJUNCTIVE_REFERENCE_ERROR, WRONG_VIEW_ATTRIBUTION, REFERENCE_FRAME_SWAP, POSITION_MATCH_ID_ERROR, CAMERA_MOTION_STATE_MISBIND]
+forbidden_tasks: [depth, distance, angle, coordinate, numeric_reasoning]
+reject_conditions: [unstable_cross_qa_identity, mismatched_scope_bundle, pixel_inferred_camera_rotation, unauthorized_transitivity]
+redistribution_policy: blocked_until_data_and_underlying_media_licenses_verified
+

@@ -1,0 +1,13 @@
+schema_version: l4_native_v3
+seed: 20260829
+contract: contracts/l4_three_part_v3.yaml
+source_revision: ffb21ab198e8d666b63e062d931ed33b60c67d0f
+target_pairs: 500
+direct_soft_range: [100, 150]
+aggregated_soft_range: [250, 350]
+branch_pair_caps: {train: 3, dev: 2, test: 2}
+allowed_post_facts: [COUNT, EXISTS_IN_WORLD, LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+require_source_reconstruction: true
+require_unique_intervention_target: true
+quality_over_quota: true
+

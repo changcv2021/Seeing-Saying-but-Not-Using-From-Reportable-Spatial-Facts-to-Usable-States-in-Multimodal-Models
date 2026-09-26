@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/world_graph.schema.json",
+  "type": "object",
+  "required": ["world_graph_id", "schema_version", "global_world_id", "source_datasets", "media", "nodes", "facts", "validation_status"],
+  "properties": {
+    "world_graph_id": {"type": "string"}, "schema_version": {"type": "string"}, "global_world_id": {"type": "string", "pattern": "^[^:]+:.+$"},
+    "source_datasets": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "media": {"type": "array", "items": {"type": "object"}}, "nodes": {"type": "array", "items": {"type": "object"}},
+    "facts": {"type": "array", "items": {"$ref": "canonical_fact.schema.json"}},
+    "authorized_rule_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "validation_status": {"enum": ["GRAPH_VALID", "GRAPH_REJECTED"]}, "reject_codes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
+

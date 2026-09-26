@@ -1,0 +1,6 @@
+dataset: spar
+version: "1.0-draft"
+families: [direct_factual, context_first, marker_based_reference, object_camera_relation, view_conditioned_relation]
+required_context: [view_id_when_view_dependent, reference_frame_when_camera_relative]
+forbidden: [numeric_depth, numeric_distance, ungrounded_object_description]
+

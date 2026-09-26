@@ -1,0 +1,703 @@
+{
+  "gemma4_31b_it": {
+    "auto_class": "multimodal_lm",
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "e967dd38bc5cfd38bd09a995a7bf4a754075df2b46aba68f7fbb5a791e6d8dd1",
+      "shards": 2,
+      "status": "READY",
+      "weight_bytes": 62546338248
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "display_name": "Gemma 4 31B IT",
+    "enable_thinking": false,
+    "enabled": true,
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 2,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "gemma4_31b_it",
+    "manifest_path": "external/scratch/industbench_diverse_models/manifests/gemma4_31b_it.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "auto_reasoning",
+    "model": "google/gemma-4-31B-it",
+    "model_id": "google/gemma-4-31B-it",
+    "model_path": "external/scratch/industbench_diverse_models/models/gemma-4-31B-it",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 2,
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "run_id": "full_multimodel_20260908_v1_gemma4_31b_it",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904,
+    "trust_remote_code": false
+  },
+  "internvl35_14b": {
+    "auto_class": "image_text_to_text",
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "159a4987c18a82ad3f73d5aa6d781e993136df7cfcc2443e67b067118884cdcf",
+      "shards": 7,
+      "status": "READY",
+      "weight_bytes": 30239160600
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "display_name": "InternVL3.5-14B",
+    "enable_thinking": false,
+    "enabled": true,
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "internvl35_14b",
+    "manifest_path": "external/scratch/industbench_diverse_models/manifests/internvl35_14b.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "auto_reasoning",
+    "model": "OpenGVLab/InternVL3_5-14B-HF",
+    "model_id": "OpenGVLab/InternVL3_5-14B-HF",
+    "model_path": "external/scratch/industbench_diverse_models/models/InternVL3_5-14B-HF",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "226b96d5912e69159abc0384cefcbd51487fdce0",
+    "run_id": "full_multimodel_20260908_v1_internvl35_14b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904,
+    "trust_remote_code": true
+  },
+  "internvl35_8b": {
+    "auto_class": "image_text_to_text",
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "32a9a726c8fd4d2386038bb1eab9fd34c6e04cf89c070e44aab346a41d9454e6",
+      "shards": 4,
+      "status": "READY",
+      "weight_bytes": 17056744056
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "display_name": "InternVL3.5-8B",
+    "enable_thinking": false,
+    "enabled": true,
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "internvl35_8b",
+    "manifest_path": "external/scratch/industbench_diverse_models/manifests/internvl35_8b.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "auto_reasoning",
+    "model": "OpenGVLab/InternVL3_5-8B-HF",
+    "model_id": "OpenGVLab/InternVL3_5-8B-HF",
+    "model_path": "external/scratch/industbench_diverse_models/models/InternVL3_5-8B-HF",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "741a7d03020411e666c6109218ab71e08151ef86",
+    "run_id": "full_multimodel_20260908_v1_internvl35_8b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904,
+    "trust_remote_code": true
+  },
+  "llama4_scout": {
+    "auto_class": "multimodal_lm",
+    "availability": {
+      "missing": [
+        "external/scratch/industbench_diverse_models/models/Llama-4-Scout-17B-16E-Instruct/model.safetensors"
+      ],
+      "model_config_sha256": null,
+      "shards": 1,
+      "status": "MISSING_WEIGHTS",
+      "weight_bytes": 0
+    },
+    "blocked_reason": "ACCESS_BLOCKED:GatedRepoError",
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "display_name": "Llama 4 Scout",
+    "enable_thinking": false,
+    "enabled": false,
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 4,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "llama4_scout",
+    "manifest_path": "external/scratch/industbench_diverse_models/manifests/llama4_scout.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "model_path": "external/scratch/industbench_diverse_models/models/Llama-4-Scout-17B-16E-Instruct",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "quantization": "official_on_the_fly_int4_required",
+    "replicas": 1,
+    "revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+    "run_id": "full_multimodel_20260908_v1_llama4_scout",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904,
+    "trust_remote_code": false
+  },
+  "mimo_vl_7b_rl": {
+    "auto_class": "multimodal_lm",
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "577c695f5f2fcd9c0d94f01f77f61bc85f5405884f8d38915efd5e80b07a426d",
+      "shards": 4,
+      "status": "READY",
+      "weight_bytes": 16612526784
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "display_name": "MiMo-VL-7B-RL",
+    "enable_thinking": false,
+    "enabled": true,
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.6,
+      "top_k": 20,
+      "top_p": 0.95
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "mimo_vl_7b_rl",
+    "manifest_path": "external/scratch/industbench_diverse_models/manifests/mimo_vl_7b_rl.json",
+    "max_new_tokens": {
+      "T1": 4096,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "auto_reasoning",
+    "model": "XiaomiMiMo/MiMo-VL-7B-RL",
+    "model_id": "XiaomiMiMo/MiMo-VL-7B-RL",
+    "model_path": "external/scratch/industbench_diverse_models/models/MiMo-VL-7B-RL",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "460c34be0c6cfe79b6b311647ae9112784f80b73",
+    "run_id": "full_multimodel_20260908_v1_mimo_vl_7b_rl",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904,
+    "trust_remote_code": false
+  },
+  "qwen25vl_32b": {
+    "availability": {
+      "missing": [
+        "artifacts/model_cache/Qwen2.5-VL-32B-Instruct/model.safetensors"
+      ],
+      "model_config_sha256": null,
+      "shards": 1,
+      "status": "MISSING_WEIGHTS",
+      "weight_bytes": 0
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "gpus": 2,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen25vl_32b",
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen2.5-VL-32B-Instruct",
+    "model_id": "Qwen/Qwen2.5-VL-32B-Instruct",
+    "model_path": "artifacts/model_cache/Qwen2.5-VL-32B-Instruct",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 2,
+    "revision": "7cfb30d71a1f4f49a57592323337a4a4727301da",
+    "run_id": "full_multimodel_20260908_v1_qwen25vl_32b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen25vl_7b": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "77d9ec7321cc572e3579e2c84799c9cadaded63c49ce93b101733349fc330c43",
+      "shards": 5,
+      "status": "READY",
+      "weight_bytes": 16584414560
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen25vl_7b",
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "model_id": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "model_path": "external/scratch/industbench_qwen25vl7b/model/Qwen2.5-VL-7B-Instruct",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+    "run_id": "full_multimodel_20260908_v1_qwen25vl_7b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen35_27b": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "f8d190c5b89c1521220f935d2567a587d6e291ed69066a45a106560b05a2174c",
+      "shards": 11,
+      "status": "READY",
+      "weight_bytes": 55563022432
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "family": "qwen3_5",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 2,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen35_27b",
+    "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen35_27b.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen3.5-27B",
+    "model_id": "Qwen/Qwen3.5-27B",
+    "model_path": "models/Qwen3.5-27B",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 2,
+    "revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+    "run_id": "full_multimodel_20260908_v1_qwen35_27b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen35_4b": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+      "shards": 2,
+      "status": "READY",
+      "weight_bytes": 9319828096
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "family": "qwen3_5",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen35_4b",
+    "manifest_path": "external/scratch/industbench_qwen35_judge/model_manifest.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen3.5-4B",
+    "model_id": "Qwen/Qwen3.5-4B",
+    "model_path": "external/scratch/industbench_qwen35_judge/model/Qwen3.5-4B",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "run_id": "full_multimodel_20260908_v1_qwen35_4b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen35_9b": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "d0883072e01861ed0b2d47be3c16c36a8e81c224c7ffaa310c6558fb3f932b05",
+      "shards": 4,
+      "status": "READY",
+      "weight_bytes": 19306310880
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "family": "qwen3_5",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen35_9b",
+    "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen35_9b.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen3.5-9B",
+    "model_id": "Qwen/Qwen3.5-9B",
+    "model_path": "models/Qwen3.5-9B",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "run_id": "full_multimodel_20260908_v1_qwen35_9b",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen3vl_2b_thinking": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "bec4b3d446efa05807365c9e1cec03ac590836879d02f3a6da879971154bdd3b",
+      "shards": 1,
+      "status": "READY",
+      "weight_bytes": 4255140312
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": true,
+    "enabled": true,
+    "family": "qwen3_vl",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 1.0,
+      "top_k": 20,
+      "top_p": 0.95
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen3vl_2b_thinking",
+    "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen3vl_2b_thinking.json",
+    "max_new_tokens": {
+      "T1": 4096,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "thinking",
+    "model": "Qwen/Qwen3-VL-2B-Thinking",
+    "model_id": "Qwen/Qwen3-VL-2B-Thinking",
+    "model_path": "models/Qwen3-VL-2B-Thinking",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "33e0ad94c327808ebc7d3bbc97e78e600f1eeecd",
+    "run_id": "full_multimodel_20260908_v1_qwen3vl_2b_thinking",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen3vl_8b_instruct": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+      "shards": 4,
+      "status": "READY",
+      "weight_bytes": 17534339512
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": false,
+    "enabled": true,
+    "family": "qwen3_vl",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 0.7,
+      "top_k": 20,
+      "top_p": 0.8
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen3vl_8b_instruct",
+    "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen3vl_8b_instruct.json",
+    "max_new_tokens": {
+      "T1": 256,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "direct",
+    "model": "Qwen/Qwen3-VL-8B-Instruct",
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "model_path": "models/Qwen3-VL-8B-Instruct",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+    "run_id": "full_multimodel_20260908_v1_qwen3vl_8b_instruct",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  },
+  "qwen3vl_8b_thinking": {
+    "availability": {
+      "missing": [],
+      "model_config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+      "shards": 4,
+      "status": "READY",
+      "weight_bytes": 17534339512
+    },
+    "decode": {
+      "do_sample": false,
+      "max_new_tokens": 512
+    },
+    "enable_thinking": true,
+    "enabled": true,
+    "family": "qwen3_vl",
+    "generation": {
+      "do_sample": true,
+      "repetition_penalty": 1.0,
+      "temperature": 1.0,
+      "top_k": 20,
+      "top_p": 0.95
+    },
+    "gpus": 1,
+    "input_hashes": {
+      "private_gold.jsonl": "436e63149f44bfedb8e540726266cf496a9662396c4170f9bd8d71aebe418a80",
+      "requests.jsonl": "7af7ed3837b316944724485fa35f5424e5c583ec742e0a90c2d2a85cdaa08e04",
+      "rubric.json": "81d6d5b1ba6616749fced2b8b964efa9f31b53352ed8acaa6ddaefa580c64ef8",
+      "smoke.jsonl": "982beb4952bac4d9b8fee11a149bb671ece65638743e020483b9c3004f8fb200",
+      "unavailable.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "key": "qwen3vl_8b_thinking",
+    "manifest_path": "external/scratch/industbench_qwen_family/manifests/qwen3vl_8b_thinking.json",
+    "max_new_tokens": {
+      "T1": 4096,
+      "T2": 4096,
+      "T3": 4096,
+      "T4": 4096
+    },
+    "media_budget": {
+      "max_pixels": 401408,
+      "min_pixels": 100352,
+      "video_frames": 16,
+      "video_max_pixels": 200704
+    },
+    "mode": "thinking",
+    "model": "Qwen/Qwen3-VL-8B-Thinking",
+    "model_id": "Qwen/Qwen3-VL-8B-Thinking",
+    "model_path": "models/Qwen3-VL-8B-Thinking",
+    "prompt_version": "ordered_frames_bare_json_512_v1",
+    "replicas": 4,
+    "revision": "92f3c4b4feadd3a016ef468d103bb5f58b2a2c6b",
+    "run_id": "full_multimodel_20260908_v1_qwen3vl_8b_thinking",
+    "scoring_policy": "retained_prefix_512_v1",
+    "seed": 20260904
+  }
+}

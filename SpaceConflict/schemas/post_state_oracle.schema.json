@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/post_state_oracle.schema.json",
+  "type": "object",
+  "required": ["oracle_id", "scene_id", "change_id", "branch_id", "origin", "source_question_id", "source_answer_raw", "normalized_atoms", "source_reconstruction", "model_input_visible"],
+  "properties": {
+    "oracle_id": {"type": "string", "minLength": 1},
+    "scene_id": {"type": "string", "minLength": 1},
+    "change_id": {"type": "string", "minLength": 1},
+    "branch_id": {"type": "string", "minLength": 1},
+    "origin": {"const": "SOURCE_POST_QA"},
+    "source_question_id": {"type": "string", "minLength": 1},
+    "source_answer_raw": {"type": "string", "minLength": 1},
+    "normalized_atoms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["subject", "predicate", "value", "scope", "state", "branch_id"],
+        "properties": {
+          "subject": {"type": "string", "minLength": 1},
+          "predicate": {"enum": ["COUNT", "LEFT_OF", "RIGHT_OF", "FRONT_OF", "BEHIND", "ABOVE", "BELOW", "EXISTS_IN_WORLD", "DISCRETE_STATE"]},
+          "object": {"type": ["string", "null"]},
+          "value": {},
+          "scope": {"type": "string", "minLength": 1},
+          "state": {"const": "post"},
+          "branch_id": {"type": "string", "minLength": 1},
+          "reference_frame": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "source_reconstruction": {"const": "PASS"},
+    "reconstructed_answer": {"type": "string"},
+    "model_input_visible": {"const": false},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}

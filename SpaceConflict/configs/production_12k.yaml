@@ -1,0 +1,15 @@
+schema_version: "1.0"
+run_stage: P3
+seed: 20260826
+target_pairs: 12000
+prerequisites: [production_10k_pass, unknown_2k_pass, leakage_checks_pass]
+level_targets: {L1: 2400, L2: 2400, L3: 4200, L4: 3000}
+dataset_level_targets:
+  spar: {L1: 1320, L2: 1200, L3: 960, L4: 0}
+  ca_vqa: {L1: 960, L2: 960, L3: 1080, L4: 0}
+  vsi_bench: {L1: 60, L2: 180, L3: 1560, L4: 0}
+  sti_bench: {L1: 0, L2: 0, L3: 360, L4: 0}
+  omnispatial: {L1: 60, L2: 60, L3: 240, L4: 240}
+  hypo3d: {L1: 0, L2: 0, L3: 0, L4: 2760}
+inherit_constraints_from: production_10k.yaml
+

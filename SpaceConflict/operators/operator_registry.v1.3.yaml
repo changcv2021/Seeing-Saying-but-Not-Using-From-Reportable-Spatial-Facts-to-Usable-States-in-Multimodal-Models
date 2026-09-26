@@ -1,0 +1,20 @@
+registry_version: "1.3"
+extends: operator_registry.v1.2.yaml@1.2
+change_policy: additive_versioned_extension
+operators:
+  - operator_id: SUBJECT_OBJECT_REBIND
+    version: "1.3"
+    family: interval_scoped_entity_binding
+    subtype: asymmetric_relation_role_swap
+    applicable_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+    forbidden_predicates: []
+    required_gt_fields: [explicit_time_scope, explicit_asymmetric_relation]
+    required_rules: [INVERSE_RELATION, SAME_INTERVAL_EXCLUSIVITY]
+    changed_slots: [subject_id, object_id]
+    preserved_slots: [predicate, media_id, time_scope, reference_frame, state_id, branch_id, scope]
+    allowed_levels: [L3]
+    allowed_modalities: [continuous_video]
+    primary_track: DYNAMIC
+    possible_secondary_tracks: [GEO-TOPO, XFORM-PROJ]
+    proof_template: interval_subject_object_rebind_v1
+    rejection_checks: [explicit_time_required, subject_object_must_differ, same_interval_required, co_truth_must_be_false]

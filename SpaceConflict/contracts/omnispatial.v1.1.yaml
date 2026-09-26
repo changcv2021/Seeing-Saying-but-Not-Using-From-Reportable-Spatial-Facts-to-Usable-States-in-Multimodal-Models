@@ -1,0 +1,14 @@
+dataset_name: omnispatial
+contract_version: "1.1"
+extends: omnispatial.yaml@1.0-draft
+change_policy: additive_versioned_extension
+allowed_operator_extension: [SUBJECT_OBJECT_SWAP]
+operator_constraints:
+  SUBJECT_OBJECT_SWAP:
+    allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+    required_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY]
+    required_scope: current_media
+    required_reference_frame: source_question_declared_perspective
+    allowed_levels: [L1]
+    primary_track: GEO-TOPO
+    reject_if: [subject_equals_object, unresolved_media, ambiguous_source_perspective]

@@ -1,0 +1,23 @@
+dataset_name: hypo3d
+contract_version: "1.0-draft"
+world_unit: {keys: [base_scene_id], media_group: base_scene_with_branches}
+media_grouping: [single_image, multi_view_images, ordered_multi_frame]
+native_gt_sources: [pre_state, context_change, post_state_qa, branch_id]
+node_types: [WORLD, BRANCH, STATE, INTERVENTION, OBJECT, CONTAINER]
+native_fact_rules: [explicit_pre_state, explicit_context_change, explicit_post_state]
+qa_to_fact_rules: [post_state_relation, post_state_existence, exact_count, replacement_identity]
+identity_policy: {merge_allowed_when: [explicit_object_id, replacement_map], merge_forbidden_when: [description_only, class_only]}
+reference_frame_policy: source_declared_only
+time_scope_policy: pre_intervention_or_post_intervention_required
+state_branch_policy: explicit_branch_required
+observability_policy: supplied_top_view_or_multiview_must_ground_claim
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, INSIDE, CONTAINS, EXISTS_IN_WORLD, COUNT]
+authorized_rules: [EXPLICIT_TRANSITION, EXPLICIT_INVARIANT, COUNT_DELTA]
+allowed_levels: [L4]
+allowed_tracks: [DYNAMIC, IDENTITY, GEO-TOPO, EMBODIED-OBS]
+valid_level_track_cells: {L4: [DYNAMIC, IDENTITY, GEO-TOPO]}
+allowed_operators: [STALE_STATE, WRONG_POST_RELATION, WRONG_TARGET_UPDATE, ADD_REMOVE_EXISTENCE_ERROR, COUNT_UPDATE_ERROR, REPLACEMENT_IDENTITY_ERROR, ATTRIBUTE_CARRYOVER, STATE_UPDATE_OMISSION, INTERVENTION_ORDER_SWAP, BRANCH_LEAKAGE, ACTUAL_HYPOTHETICAL_SWAP, OVER_UPDATE, UNAFFECTED_RELATION_CHANGE]
+forbidden_tasks: [metric_scale, metric_distance, nonunique_post_state, commonsense_only, reachability_without_oracle, nonspatial_attribute_only]
+reject_conditions: [missing_access_form, underspecified_post_state, unproved_invariant]
+redistribution_policy: blocked_until_access_and_underlying_media_terms_verified
+

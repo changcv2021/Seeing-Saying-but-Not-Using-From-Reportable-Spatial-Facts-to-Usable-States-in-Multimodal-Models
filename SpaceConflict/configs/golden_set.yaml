@@ -1,0 +1,11 @@
+schema_version: "1.0"
+run_stage: P0
+seed: 20260826
+target_pairs_min: 80
+target_pairs_max: 120
+require_all_nonempty_dataset_level_cells: true
+require_all_primary_tracks: true
+require_all_modalities: true
+require_unknown_examples: true
+require_full_replay: true
+

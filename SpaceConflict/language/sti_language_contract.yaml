@@ -1,0 +1,6 @@
+dataset: sti_bench
+version: "1.0-draft"
+families: [explicit_time_interval, motion_stage, entry_exit_order]
+required_context: [time_scope]
+forbidden: [continuous_numeric_value, implicit_interval]
+

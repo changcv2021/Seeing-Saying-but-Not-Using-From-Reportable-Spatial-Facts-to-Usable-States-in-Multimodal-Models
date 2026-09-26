@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/unknown_certificate.schema.json",
+  "type": "object",
+  "required": ["certificate_id", "label", "unknown_reason", "available_evidence_ids", "missing_decisive_evidence", "satisfiable_with_claim", "satisfiable_with_negation", "witness_completion_positive", "witness_completion_negative", "resolving_evidence_type", "forbidden_inference", "would_be_level_if_resolved"],
+  "properties": {
+    "certificate_id": {"type": "string"},
+    "label": {"const": "UNKNOWN"},
+    "unknown_reason": {"enum": ["MISSING_VIEW", "MISSING_TIME_SEGMENT", "UNRESOLVED_IDENTITY", "REFERENCE_FRAME_AMBIGUITY", "OCCLUDED_VS_ABSENT", "COUNT_SCOPE_INCOMPLETE", "NO_CONNECTIVITY_ORACLE", "POST_STATE_UNDERSPECIFIED", "MULTIPLE_VALID_COMPLETIONS"]},
+    "available_evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "missing_decisive_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "satisfiable_with_claim": {"const": true},
+    "satisfiable_with_negation": {"const": true},
+    "witness_completion_positive": {"type": "object"},
+    "witness_completion_negative": {"type": "object"},
+    "resolving_evidence_type": {"type": "string"},
+    "forbidden_inference": {"type": "string"},
+    "would_be_level_if_resolved": {"enum": ["L1", "L2", "L3", "L4"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "R1": "The explanation itself clearly argues for the expected three-valued verdict. A bare label, hedging that reverses the verdict, or a generic instruction is insufficient.",
+    "R2": "The explanation gives a claim-specific spatial reason consistent with the reference proposition (for binary claims), or identifies a claim-specific evidence gap (for UNKNOWN). Merely repeating the verdict or discussing unrelated entities is insufficient."
+  },
+  "fallback": "Up to three deterministic attempts; invalid judgments fail closed as met=false and are logged.",
+  "gold_policy": "Gold and references are judge-only, never sent to the evaluated VLM. UNKNOWN never receives the withheld reference proposition.",
+  "required_evidence": "For met=true quote a contiguous verbatim substring of candidate_reason, 2-160 non-whitespace characters. For false use an empty string.",
+  "scale": "0-100; mean of two equally weighted binary criteria",
+  "scope": "Auxiliary text explanation assessment, not independent visual grounding or proof verification.",
+  "version": "spaceconflict_explanation_rubric_v1"
+}

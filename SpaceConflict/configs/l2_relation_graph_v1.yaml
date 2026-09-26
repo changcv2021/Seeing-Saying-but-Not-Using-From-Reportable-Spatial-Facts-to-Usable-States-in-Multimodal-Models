@@ -1,0 +1,17 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+claim_build_version: claim_build_l2_relation_graph_v1
+world_graph_manifest: world_graphs/manifest.world_graph_v5.jsonl
+canonical_record_paths:
+  - data/canonical/vsi_bench/bdcadb3fea447621a828a24911801faba3587c12/canonical_v4/records.jsonl
+  - data/canonical/spar/ae9bbc5297fd277123c42b0628d1f40bf72f89f1/canonical_v4/records.jsonl
+target_pairs: 2000
+oversample_factor: 1
+allowed_levels: [L2]
+enable_l2_transitive: true
+source_item_pair_cap: 4
+source_scope: vsi_bench_and_spar_unique_irreducible_two_fact_chains
+quality_policy: unique_two_fact_path_no_direct_conclusion_each_single_premise_ablation_must_be_unknown
+test_world_pair_cap: 4
+media_redistribution: false

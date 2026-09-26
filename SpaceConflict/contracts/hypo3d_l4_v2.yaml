@@ -1,0 +1,79 @@
+dataset_name: hypo3d
+contract_version: "2.0"
+supersedes_for_l4_only: contracts/hypo3d.yaml@1.0-draft
+world_unit: {keys: [base_scene_id], media_group: base_scene_with_independent_branches}
+transition_mode: question_scoped_local_micrograph
+native_gt_sources: [context_change, post_state_qa, branch_id, source_scene_annotations]
+node_types: [WORLD, BRANCH, STATE, INTERVENTION, OBJECT, CONTAINER, ORACLE]
+native_fact_rules: [explicit_context_change, source_post_qa_oracle, annotation_aligned_pre_state]
+qa_to_fact_rules: [post_state_relation, post_state_existence, exact_count, replacement_identity]
+identity_policy:
+  merge_allowed_when: [explicit_object_id, annotation_aligned_unique_reference]
+  merge_forbidden_when: [description_only_guess, class_only_guess, model_only_identity]
+  branch_local_ids_allowed: true
+  unique_target_required: true
+reference_frame_policy: source_declared_only
+time_scope_policy: pre_intervention_or_post_intervention_required
+state_branch_policy: explicit_branch_required
+observability_policy: structured_source_annotation_required_for_gt_pixels_are_model_input_only
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, INSIDE, CONTAINS, EXISTS_IN_WORLD, COUNT, SAME_INSTANCE, REPLACES]
+authorized_rules:
+  - REMOVAL_TARGET_NO_LONGER_EXISTS
+  - REMOVAL_DECREMENTS_CLASS_COUNT
+  - ADDITION_NEW_ENTITY_EXISTS
+  - ADDITION_INCREMENTS_CLASS_COUNT
+  - ADDITION_EXPLICIT_PLACEMENT
+  - REPLACEMENT_REMOVES_OLD_ENTITY
+  - REPLACEMENT_ADDS_NEW_ENTITY
+  - REPLACEMENT_CREATES_DISTINCT_IDENTITY
+  - REPLACEMENT_COUNT_DELTA
+  - MOVEMENT_PRESERVES_IDENTITY
+  - MOVEMENT_EXPLICIT_POST_RELATION
+  - MUTUALLY_EXCLUSIVE_POST_RELATION
+allowed_levels: [L4]
+allowed_tracks: [DYNAMIC, IDENTITY, GEO-TOPO, XFORM-PROJ]
+valid_level_track_cells: {L4: [DYNAMIC, IDENTITY, GEO-TOPO, XFORM-PROJ]}
+allowed_operators:
+  - COUNT_UPDATE_OMISSION
+  - PRE_COUNT_CARRYOVER
+  - REMOVED_OBJECT_PERSISTENCE
+  - ADDED_OBJECT_ABSENCE
+  - OLD_OBJECT_PERSISTENCE
+  - NEW_OBJECT_ABSENCE
+  - REPLACEMENT_IDENTITY_COLLAPSE
+  - REPLACEMENT_COUNT_UPDATE_ERROR
+  - STALE_SPATIAL_STATE
+  - WRONG_POST_RELATION
+forbidden_tasks:
+  - metric_scale
+  - metric_distance
+  - nonunique_post_state
+  - commonsense_only
+  - reachability_without_oracle
+  - nonspatial_attribute_only
+  - model_predicted_target
+reject_conditions:
+  - missing_context_change
+  - missing_source_answer
+  - ambiguous_target
+  - missing_annotation_grounded_prestate
+  - unproved_transition
+  - co_truth_possible
+  - verifier_disagreement
+proof_policy:
+  label_provenance_certificate_may_use: [SOURCE_POST_ORACLE]
+  accessible_reasoning_certificate_may_use: [SOURCE_PRE_FACT, TARGET_RESOLUTION, INTERVENTION, TRANSITION_RULE, DERIVED_POST_FACT]
+  accessible_reasoning_certificate_forbids: [SOURCE_POST_ORACLE, SOURCE_ANSWER]
+  dependency_ablation_certificate: accessible_reasoning_certificate
+strength_policy:
+  core:
+    requires_necessary_pre_state_fact: true
+    scene_only_label: UNKNOWN
+    change_only_label: UNKNOWN
+  calibration:
+    allows_empty_or_nonnecessary_pre_state: true
+    change_only_may_determine_label: true
+  minimum_core_ratio: 0.85
+  maximum_calibration_ratio: 0.15
+redistribution_policy: source_ids_and_local_generation_no_source_media_redistribution
+

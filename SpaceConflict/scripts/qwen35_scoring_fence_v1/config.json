@@ -1,0 +1,18 @@
+{
+  "run_id": "qwen35_scale_512_fence_v1_20260906",
+  "seed": 20260904,
+  "source_campaign": "artifacts/model_results/qwen35_scale_512_20260906",
+  "source_config_sha256": "4a079d6c09c9aac4a6e60a8ec71e861af85c6199885f8014f23608e23f06bafc",
+  "normalization_version": "outer_json_fence_v1",
+  "models": [
+    "qwen35_4b",
+    "qwen35_9b",
+    "qwen35_27b"
+  ],
+  "inference_jobs": {
+    "qwen35_4b": "8163976",
+    "qwen35_9b": "8163982",
+    "qwen35_27b": "8163988"
+  },
+  "reused_nine_b_smoke_judge": "8163981"
+}

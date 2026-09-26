@@ -1,0 +1,30 @@
+{
+  "alias_policy": "source catalog + ScanNet physical space ID + exact media connected components",
+  "approved_audit_sha256": "75a6525d66d95b01739fa52844f5bcb3da05644c1d3be7b72201e1f055c01525",
+  "input_hashes": {
+    "data/dev/private_gold.jsonl": "780c43589a79ab7aa976b408e31f8f8fd6b81b045997ae7e4f6cb4e9a1667b06",
+    "data/dev/requests.jsonl": "05370e028588c2af2ddadf3b9634eb6d9e46481a96fe3b6ad9cc582e9aefcbe0",
+    "data/test/private_gold.jsonl": "1b98b084e2fd0429282470703038d5c159c9dec9a9fc5b2db76d9f47fefec031",
+    "data/test/requests.jsonl": "a7757a96e3b43982230c474e90b23d5ae83f0c307854e14cb5426d0fbba625b6",
+    "data/train/private_gold.jsonl": "1a31965d0297af0748aadbfd1c16e0fdb3fd4e99263a7770d52c66094ad4f887",
+    "data/train/requests.jsonl": "5a4a26b7af305559c6b4a8d1a7a88296dba3bd32e94dfd96c766eba5de263874"
+  },
+  "limitations": [
+    "No claim to exhaustive physical identity for datasets without official scene IDs"
+  ],
+  "missing_nested_split_policy": "require outer train split, approved canonical world map, frozen source hash, and no dev/test media",
+  "nested_requests_without_split": 272,
+  "samples": {
+    "dev": 3267,
+    "test": 5608,
+    "train": 13476
+  },
+  "status": "PASS_APPROVED_WORLD_ALIAS_AND_MEDIA_ISOLATION",
+  "test_payload_unchanged": true,
+  "world_alias_map_sha256": "0a2168d4e4caa636b1ba794403b9c35ea72fda909789fc249cbe4058a9abb246",
+  "worlds": {
+    "dev": 571,
+    "test": 1124,
+    "train": 2221
+  }
+}

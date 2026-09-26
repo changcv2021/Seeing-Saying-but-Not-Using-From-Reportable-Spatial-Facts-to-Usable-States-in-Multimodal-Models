@@ -1,0 +1,10 @@
+{
+  "credential_literals": 1,
+  "identity_references": 57,
+  "internal_endpoints": 3,
+  "opaque_credential_like_literals": 1,
+  "personal_email": 0,
+  "private_path_references": 640452,
+  "scheduler_account": 334,
+  "signed_url_secrets": 0
+}

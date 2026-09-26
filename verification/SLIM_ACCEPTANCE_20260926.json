@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "date": "2026-09-26",
+  "scope": "Slim public export; no changes to original research data or experiments.",
+  "removed_public_prefixes": [
+    "results/sft/predictions",
+    "results/sft/scored",
+    "artifacts/model_results/sequential_state_mechanism"
+  ],
+  "removed_files": 67,
+  "removed_uncompressed_bytes": 172987525,
+  "original_research_records_preserved": true,
+  "removed_export_copies_recoverable_privately": true,
+  "retained_files_identical_to_previous_release": 1140,
+  "changed_docs_and_helper": [
+    "README.md",
+    "README_CN.md",
+    "docs/EVALUATION.md",
+    "docs/PORTABILITY.md",
+    "tools/reproduce_sft_results.py",
+    "verification/README_CN.md"
+  ],
+  "removed_manifest_entries": 41,
+  "benchmark_gold_requests_training_targets_unchanged": true,
+  "raw_predictions_and_diagnostic_inputs_bundled": false,
+  "metric_reproduction": "PASS: 13 original runs supplied from private backup, not bundled.",
+  "privacy_check": "Previously validated retained files are hash-identical; changed documentation/helper rescanned.",
+  "commands": [
+    {
+      "name": "data_validation",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"splits\": {\n    \"train\": {\n      \"inputs\": 13476,\n      \"worlds\": 2221,\n      \"levels\": {\n        \"L4\": 1040,\n        \"L1\": 10072,\n        \"L3\": 1188,\n        \"L2\": 1176\n      },\n      \"labels\": {\n        \"SUPPORTED\": 6673,\n        \"CONTRADICTORY\": 6673,\n        \"UNKNOWN\": 130\n      }\n    },\n    \"dev\": {\n      \"inputs\": 3267,\n      \"worlds\": 571,\n      \"levels\": {\n        \"L4\": 403,\n        \"L2\": 294,\n        \"L1\": 2334,\n        \"L3\": 236\n      },\n      \"labels\": {\n        \"SUPPORTED\": 1610,\n        \"CONTRADICTORY\": 1610,\n        \"UNKNOWN\": 47\n      }\n    },\n    \"test\": {\n      \"inputs\": 5608,\n      \"worlds\": 1124,\n      \"levels\": {\n        \"L4\": 516,\n        \"L1\": 3654,\n        \"L3\": 976,\n        \"L2\": 462\n      },\n      \"labels\": {\n        \"CONTRADICTORY\": 1771,\n        \"SUPPORTED\": 1771,\n        \"UNKNOWN\": 2066\n      }\n    },\n    \"full_benchmark\": {\n      \"inputs\": 24196\n    }\n  },\n  \"world_disjoint\": true,\n  \"public_requests_gold_free\": true,\n  \"note\": \"The historical alias-map audit is preserved separately; no new world grouping was inferred.\"\n}\n"
+    },
+    {
+      "name": "parser_regression",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.010s\n\nOK\n"
+    },
+    {
+      "name": "sampling_regression",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.023s\n\nOK\n"
+    },
+    {
+      "name": "preserved_exposure_regression",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.093s\n\nOK\n"
+    },
+    {
+      "name": "score_help",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "usage: Score public predictions against separately supplied public gold. CPU only.\n       [-h] --gold GOLD --predictions PREDICTIONS [--output OUTPUT]\n\noptions:\n  -h, --help            show this help message and exit\n  --gold GOLD\n  --predictions PREDICTIONS\n  --output OUTPUT\n"
+    },
+    {
+      "name": "reproduce_help",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "usage: Recompute 13 historical evaluations from separately supplied original predictions.\n       [-h] --predictions-dir PREDICTIONS_DIR [--output OUTPUT]\n\noptions:\n  -h, --help            show this help message and exit\n  --predictions-dir PREDICTIONS_DIR\n                        Directory containing the original 13 JSONL runs; not\n                        bundled\n  --output OUTPUT       New output file; the delivered verification report is\n                        never overwritten\n"
+    },
+    {
+      "name": "reproduce_requires_external_predictions",
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "output": "usage: Recompute 13 historical evaluations from separately supplied original predictions.\n       [-h] --predictions-dir PREDICTIONS_DIR [--output OUTPUT]\nRecompute 13 historical evaluations from separately supplied original predictions.: error: the following arguments are required: --predictions-dir\n"
+    },
+    {
+      "name": "external_prediction_reproduction",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "output": "{\"status\": \"PASS_EXACT_METRIC_REPRODUCTION\", \"models\": 13, \"inputs_per_model\": 5608}\n"
+    }
+  ],
+  "api_calls_performed": false,
+  "gpu_work_performed": false,
+  "external_publish_performed": false
+}

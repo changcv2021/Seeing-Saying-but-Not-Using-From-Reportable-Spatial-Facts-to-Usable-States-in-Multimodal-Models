@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/canonical_fact.schema.json",
+  "type": "object",
+  "required": ["fact_id", "subject", "predicate", "polarity", "context", "provenance", "grounding", "observability", "derivation"],
+  "properties": {
+    "fact_id": {"type": "string", "minLength": 1},
+    "subject": {"type": "string", "minLength": 1},
+    "predicate": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*$"},
+    "object": {"type": ["string", "null"]},
+    "value": {},
+    "polarity": {"enum": ["positive", "negative"]},
+    "quantifier": {"type": ["string", "null"]},
+    "context": {
+      "type": "object",
+      "required": ["world_id", "reference_frame", "state_id", "branch_id", "scope"],
+      "properties": {
+        "world_id": {"type": "string"}, "media_id": {"type": ["string", "null"]}, "view_id": {"type": ["string", "null"]}, "frame_id": {"type": ["string", "null"]}, "time_scope": {"type": ["object", "string", "null"]}, "reference_frame": {"type": "string"}, "state_id": {"type": "string"}, "branch_id": {"type": "string"}, "scope": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["origin_type", "source_dataset", "source_item_ids", "source_field_paths", "adapter_version", "source_record_hash"],
+      "properties": {
+        "origin_type": {"enum": ["NATIVE_DIRECT", "QA_DIRECT", "RULE_DERIVED", "GEOMETRY_DERIVED", "MODEL_PREDICTED"]},
+        "source_dataset": {"type": "string"}, "source_item_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "source_field_paths": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "source_raw_values": {"type": "array"}, "adapter_version": {"type": "string"}, "source_record_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "grounding": {"type": "object"},
+    "observability": {"enum": ["directly_observable", "derived_from_observable", "oracle_only"]},
+    "derivation": {"type": ["object", "null"]},
+    "underlying_fact_id": {"type": ["string", "null"]},
+    "equivalence_class_id": {"type": ["string", "null"]},
+    "canonical_fact_hash": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {"if": {"properties": {"provenance": {"properties": {"origin_type": {"enum": ["RULE_DERIVED", "GEOMETRY_DERIVED"]}}}}}, "then": {"properties": {"derivation": {"type": "object", "required": ["rule_id", "premise_ids"]}}}},
+    {"if": {"properties": {"provenance": {"properties": {"origin_type": {"const": "MODEL_PREDICTED"}}}}}, "then": {"properties": {"observability": {"const": "oracle_only"}}}}
+  ],
+  "additionalProperties": false
+}
+

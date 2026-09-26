@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/l4_unknown_v3.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version", "sample_id", "label", "level", "l4_origin", "unknown_origin",
+    "unknown_axis", "base_determinate_sample_id", "global_world_id", "base_scene_id",
+    "branch_id", "split", "source_group", "model_input", "claim_graph",
+    "positive_witness_completion", "negative_witness_completion", "missing_decisive_evidence",
+    "resolving_evidence_type", "would_be_level_if_resolved", "pipeline_failure", "validation"
+  ],
+  "properties": {
+    "schema_version": {"const": "spaceconflict_l4_unknown_v3"},
+    "sample_id": {"type": "string", "pattern": "^sc_l4_unknown_"},
+    "label": {"const": "UNKNOWN"},
+    "level": {"const": "L4"},
+    "l4_origin": {"const": "L4_UNKNOWN"},
+    "unknown_origin": {"enum": ["EVIDENCE_ABLATION", "SOURCE_UNDERSPECIFICATION"]},
+    "unknown_axis": {"enum": ["MISSING_PRE_COUNT", "REFERENCE_FRAME_AMBIGUITY", "UNRESOLVED_POST_IDENTITY", "POST_STATE_UNDERSPECIFIED"]},
+    "base_determinate_sample_id": {"type": "string", "minLength": 1},
+    "global_world_id": {"type": "string", "pattern": "^hypo3d:"},
+    "base_scene_id": {"type": "string", "minLength": 1},
+    "branch_id": {"type": "string", "minLength": 1},
+    "split": {"enum": ["train", "dev", "test"]},
+    "source_group": {"type": "string", "minLength": 1},
+    "model_input": {"type": "object", "required": ["media", "intervention_text", "claim_text"]},
+    "claim_graph": {"type": "object", "required": ["predicate", "subject", "state"]},
+    "positive_witness_completion": {
+      "type": "object", "required": ["claim_holds"],
+      "properties": {"claim_holds": {"const": true}}
+    },
+    "negative_witness_completion": {
+      "type": "object", "required": ["claim_holds"],
+      "properties": {"claim_holds": {"const": false}}
+    },
+    "missing_decisive_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "resolving_evidence_type": {"type": "string", "minLength": 1},
+    "would_be_level_if_resolved": {"const": "L4"},
+    "pipeline_failure": {"const": false},
+    "validation": {
+      "type": "object",
+      "required": ["status", "final_status", "satisfiable_with_claim", "satisfiable_with_negation", "independent_witness_verifier"],
+      "properties": {
+        "status": {"const": "PASS"},
+        "final_status": {"const": "AUTO_ACCEPTED"},
+        "satisfiable_with_claim": {"const": true},
+        "satisfiable_with_negation": {"const": true},
+        "independent_witness_verifier": {"const": "PASS"}
+      }
+    }
+  }
+}

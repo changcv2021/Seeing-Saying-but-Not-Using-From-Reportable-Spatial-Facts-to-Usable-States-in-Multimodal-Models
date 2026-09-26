@@ -1,0 +1,22 @@
+{
+  "sample_ids": [
+    "sc_pair_6e27d91434b54c939b4e724b_pos",
+    "sc_pair_9e19e5d6e621071303d65262_neg",
+    "sc_pair_295d3064f4458139f467708e_pos",
+    "sc_pair_fab893c630c53d4579915a05_neg",
+    "sc_pair_c31a3595dfea6b5a4a25a12e_neg",
+    "sc_pair_7f8c25e7f1fdb22cd0a9f838_neg",
+    "sc_l4_native_5a559bc012333dfa70c68431:candidate_0",
+    "sc_l4_native_2af9b9742e2a3c787aa129f3:candidate_1",
+    "sc_pair_5fb1b316b06f5864da61f62b_neg",
+    "sc_pair_b2462f3c4e293d4a1548394c_neg",
+    "sc_pair_afcbcb421fdb366d6d075fc7_pos",
+    "sc_pair_6467f5356f3d8772e80feb81_neg",
+    "sc_pair_a5003375dd0ef5f9e634e7a4_pos",
+    "sc_pair_f644e0e2e30aaf3b4b82f651_neg",
+    "sc_pair_5aff522b25c6313a7c78fa04_pos",
+    "sc_pair_f46ad0102a289bf40a6c96e6_neg"
+  ],
+  "selection": "train-only fixed hashes, all levels, largest media/target, CoT fallback and S2 world",
+  "model_errors_used": false
+}

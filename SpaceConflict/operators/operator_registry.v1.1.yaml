@@ -1,0 +1,21 @@
+registry_version: "1.1"
+extends: operator_registry.yaml@1.0
+change_policy: additive_versioned_extension
+operators:
+  - operator_id: APPEARANCE_ORDER_ERROR
+    version: "1.1"
+    family: temporal_order_binding
+    subtype: strict_order_role_swap
+    applicable_predicates: [BEFORE]
+    forbidden_predicates: []
+    required_gt_fields: [whole_video_first_appearance_fact]
+    required_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY]
+    changed_slots: [subject_id, object_id]
+    preserved_slots: [predicate, media_id, time_scope, state_id, branch_id, scope]
+    allowed_levels: [L3]
+    allowed_modalities: [continuous_video]
+    primary_track: DYNAMIC
+    possible_secondary_tracks: [XFORM-PROJ]
+    proof_template: appearance_order_role_swap_v1
+    rejection_checks: [strict_order_fact_required, whole_video_scope_required, co_truth_must_be_false]
+

@@ -1,0 +1,24 @@
+dataset_name: scope
+contract_version: "0.0-disabled"
+enabled: false
+reason: official_data_source_schema_and_license_not_verified
+world_unit: {keys: [], media_group: unknown}
+native_gt_sources: []
+node_types: []
+native_fact_rules: []
+qa_to_fact_rules: []
+identity_policy: {merge_allowed_when: [], merge_forbidden_when: [all_until_verified]}
+reference_frame_policy: unverified
+time_scope_policy: unverified
+state_branch_policy: unverified
+observability_policy: unverified
+allowed_predicates: []
+authorized_rules: []
+allowed_levels: []
+allowed_tracks: []
+valid_level_track_cells: {}
+allowed_operators: []
+forbidden_tasks: [all]
+reject_conditions: [source_not_verified]
+redistribution_policy: disabled
+

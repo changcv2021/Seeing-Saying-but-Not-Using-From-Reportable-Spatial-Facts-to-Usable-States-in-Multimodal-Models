@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/hypo3d_object_catalog.schema.json",
+  "type": "object",
+  "required": ["schema_version", "source_type", "source_hashes", "scenes"],
+  "properties": {
+    "schema_version": {"const": "hypo3d_object_catalog_v2"},
+    "source_type": {"enum": ["EMBODIEDSCAN_OFFICIAL_ANNOTATION", "OFFICIAL_STRUCTURED_ANNOTATION_FUSION", "UNVERIFIED_THIRD_PARTY_MIRROR"]},
+    "source_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}},
+    "scenes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["source_scene_id", "objects", "relations"],
+        "properties": {
+          "source_scene_id": {"type": "string"},
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["object_id", "class", "aliases", "source_instance_index", "origin_type"],
+              "properties": {
+                "object_id": {"type": "string"},
+                "class": {"type": "string"},
+                "label": {"type": "string"},
+                "aliases": {"type": "array", "items": {"type": "string"}},
+                "source_instance_index": {"type": "integer", "minimum": 0},
+                "source_label_id": {"type": "integer"},
+                "source_bbox_id": {"type": "integer"},
+                "source_native_object_id": {"type": "integer"},
+                "source_annotation_namespace": {"type": "string"},
+                "bbox_3d": {
+                  "type": "array", "minItems": 9, "maxItems": 9,
+                  "items": {"type": "number"}
+                },
+                "bbox_3d_format": {"const": "XYZ_DXDYDZ_EULER_ZXY_RADIANS"},
+                "coordinate_frame": {"const": "EMBODIEDSCAN_WORLD_X_RIGHT_Y_FRONT_Z_UP"},
+                "origin_type": {"const": "SOURCE_OBJECT_ANNOTATION"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "relations": {"type": "array"},
+          "exact_class_counts": {
+            "type": "object",
+            "additionalProperties": {"type": "integer", "minimum": 1}
+          },
+          "exact_class_count_sources": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

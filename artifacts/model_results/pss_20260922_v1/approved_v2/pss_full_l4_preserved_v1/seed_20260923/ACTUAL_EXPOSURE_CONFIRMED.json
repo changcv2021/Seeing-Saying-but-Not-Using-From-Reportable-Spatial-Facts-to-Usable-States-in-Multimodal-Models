@@ -1,0 +1,18 @@
+{
+  "exposure_audit_sha256": "b4201100517daea7e7f41d832ebd9975ae584e0b528f113acf136e12528a1b77",
+  "l4_per_key_counts_and_weights": "EXACTLY_EQUAL_TO_CORRESPONDING_OLD_PSS_L4",
+  "optimizer_updates": 3358,
+  "raw_log_hashes": {
+    "artifacts/model_results/pss_20260922_v1/approved_v2/pss_full_l4_preserved_v1/seed_20260923/runs/pss_full_l4_preserved__seed_20260923/attempts/8322647/updates_rank_0.jsonl": "ab67cd15c2c396a3ad219b89a0f08b3e993a26a521ba028478c9ce35733df4b3",
+    "artifacts/model_results/pss_20260922_v1/approved_v2/pss_full_l4_preserved_v1/seed_20260923/runs/pss_full_l4_preserved__seed_20260923/attempts/8322647/updates_rank_1.jsonl": "3770b9c9d8552a1eef8bfafc13d595c002a6084c3946a37073cb169d680ab4df"
+  },
+  "seed": 20260923,
+  "status": "PASS_EXACT_FROZEN_EXPOSURES_AND_PROCESSOR_TOKENS",
+  "test_payload_unchanged": true,
+  "totals": {
+    "forward_records": 80428,
+    "input_tokens": 132959235,
+    "non_padding_tokens": 134413426,
+    "target_tokens": 1454191
+  }
+}

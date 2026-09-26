@@ -1,0 +1,41 @@
+{
+  "status": "PASS_PREPUBLICATION_CHECKS",
+  "target_repository": "https://github.com/changcv2021/Seeing-Saying-but-Not-Using-From-Reportable-Spatial-Facts-to-Usable-States-in-Multimodal-Models",
+  "requested_visibility": "public",
+  "changed_documents": [
+    ".gitignore",
+    "README.md",
+    "README_CN.md"
+  ],
+  "benchmark_gold_requests_and_training_targets_unchanged": true,
+  "original_release_folder_and_zip_unchanged": true,
+  "excluded": [
+    "Per-sample model outputs and scores",
+    "Diagnostic inputs and gold",
+    "Source media",
+    "Model weights",
+    "Authentication files",
+    "Private backups"
+  ],
+  "privacy_check": "Retained content hash-identical to validated slim package; edited docs rescanned.",
+  "legal_scope": "Technical acceptance only; upstream data terms and unresolved rights notes remain unchanged.",
+  "validations": [
+    {
+      "name": "data_validation",
+      "status": "PASS"
+    },
+    {
+      "name": "parser_regression",
+      "status": "PASS"
+    },
+    {
+      "name": "sampling_regression",
+      "status": "PASS"
+    },
+    {
+      "name": "preserved_exposure_regression",
+      "status": "PASS"
+    }
+  ],
+  "gpu_work_performed": false
+}

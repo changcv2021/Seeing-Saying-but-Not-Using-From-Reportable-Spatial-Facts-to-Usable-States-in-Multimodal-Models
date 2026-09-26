@@ -1,0 +1,16 @@
+schema_version: l4_release_v3
+seed: 20260829
+contract: contracts/l4_three_part_v3.yaml
+native_target: [400, 500]
+controlled_target: [700, 800]
+binary_target: [1100, 1300]
+acceptable_binary_range: [800, 1300]
+unknown_target: [300, 400]
+calibration_max_fraction: 0.15
+controlled_ideal_max_fraction: 0.70
+controlled_absolute_max_fraction: 0.75
+test_binary_target: [250, 350]
+test_origin_target: {native: 0.40, controlled: 0.60}
+quality_over_quota: true
+media_redistribution: false
+

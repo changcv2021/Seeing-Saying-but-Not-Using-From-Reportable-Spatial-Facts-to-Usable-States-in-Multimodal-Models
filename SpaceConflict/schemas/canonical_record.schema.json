@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/canonical_record.schema.json",
+  "type": "object",
+  "required": ["record_id", "schema_version", "source_dataset", "source_item_ids", "global_world_id", "media", "facts", "source_record_hash"],
+  "properties": {
+    "record_id": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string"},
+    "source_dataset": {"type": "string"},
+    "source_item_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1, "uniqueItems": true},
+    "global_world_id": {"type": "string", "pattern": "^[^:]+:.+$"},
+    "media": {"type": "array", "items": {"type": "object", "required": ["media_id", "media_type", "relative_path"]}},
+    "facts": {"type": "array", "items": {"$ref": "canonical_fact.schema.json"}},
+    "source_record_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "reject_codes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
+

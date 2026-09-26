@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/hypo3d_grounding_inventory.schema.json",
+  "type": "object",
+  "required": ["schema_version", "auditor_version", "status", "truth_boundary", "metadata_path", "metadata_bytes", "metadata_sha256", "total_source_scene_count", "requested_scene_count", "covered_scene_count", "missing_scene_ids", "malformed_scene_ids", "scenes"],
+  "properties": {
+    "schema_version": {"const": "hypo3d_grounding_inventory_v2_1"},
+    "auditor_version": {"const": "hypo3d_grounding_auditor_v2_1"},
+    "status": {"enum": ["GROUNDING_AUDITED", "GROUNDING_COVERAGE_INCOMPLETE"]},
+    "truth_boundary": {"const": "FRAME_DEPTH_POSE_GROUNDING_ONLY_NOT_OBJECT_OR_TRANSITION_TRUTH"},
+    "metadata_path": {"type": "string", "minLength": 1},
+    "metadata_bytes": {"type": "integer", "minimum": 1},
+    "metadata_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "total_source_scene_count": {"type": "integer", "minimum": 0},
+    "source_type_distribution": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "requested_scene_count": {"type": "integer", "minimum": 0},
+    "covered_scene_count": {"type": "integer", "minimum": 0},
+    "missing_scene_ids": {"type": "array", "items": {"type": "string"}},
+    "malformed_scene_ids": {"type": "array", "items": {"type": "string"}},
+    "scenes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["source_scene_id", "frame_count", "valid_pose_count", "depth_path_count", "representative_frames"],
+        "properties": {
+          "source_scene_id": {"type": "string"},
+          "frame_count": {"type": "integer", "minimum": 0},
+          "valid_pose_count": {"type": "integer", "minimum": 0},
+          "depth_path_count": {"type": "integer", "minimum": 0},
+          "representative_frames": {"type": "array", "maxItems": 3, "items": {"type": "object"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true
+}

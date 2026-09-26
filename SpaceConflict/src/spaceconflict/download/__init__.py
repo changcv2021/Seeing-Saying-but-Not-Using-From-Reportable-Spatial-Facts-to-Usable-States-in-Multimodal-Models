@@ -1,0 +1,2 @@
+"""Tiered official-source acquisition."""
+

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/benchmark_pair.schema.json",
+  "type": "object",
+  "required": ["pair_id", "schema_version", "source", "media", "task", "graph_reference", "supported_claim", "contradictory_claim", "construction_trace_id", "certificate_id", "validation"],
+  "properties": {
+    "pair_id": {"type": "string", "pattern": "^sc_pair_"}, "schema_version": {"const": "2.0"},
+    "source": {"type": "object", "required": ["source_dataset", "source_item_ids", "global_world_id", "source_revision", "source_hashes"]},
+    "media": {"type": "object", "required": ["media_type", "media_ids"]},
+    "task": {"type": "object", "required": ["level", "primary_diagnostic_tag", "secondary_diagnostic_tags", "operator_id"]},
+    "graph_reference": {"type": "object", "required": ["world_graph_id", "world_graph_version", "world_graph_hash"]},
+    "supported_claim": {"$ref": "#/$defs/claim"}, "contradictory_claim": {"$ref": "#/$defs/claim"},
+    "construction_trace_id": {"type": "string"}, "certificate_id": {"type": "string"},
+    "validation": {"type": "object", "required": ["source_reconstruction", "graph_consistency", "claim_entailment", "contradiction_proof", "graph_text_roundtrip", "pair_balance", "level_validation", "track_validation", "independent_verifier", "final_status"], "properties": {"final_status": {"const": "AUTO_ACCEPTED"}}}
+  },
+  "$defs": {"claim": {"type": "object", "required": ["normalized", "canonical_text", "natural_text", "text_graph_alignment"], "properties": {"normalized": {"type": "object"}, "canonical_text": {"type": "string", "minLength": 1}, "natural_text": {"type": "string", "minLength": 1}, "text_graph_alignment": {"type": "array"}}}},
+  "additionalProperties": false
+}
+

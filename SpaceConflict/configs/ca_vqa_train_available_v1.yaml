@@ -1,0 +1,14 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+claim_build_version: claim_build_ca_train_available_v1
+world_graph_manifest: world_graphs/manifest.world_graph_train_available_subset_v1.jsonl
+canonical_record_paths:
+  - data/canonical/ca_vqa_train/080812355c21a40f437ed03d4ae558d35bfa2929/canonical_train_available_subset_v1/records.jsonl
+target_pairs: 800
+oversample_factor: 1
+source_scope: ca_vqa_train_binary_and_cardinality_available_subset
+quality_policy: report_actual_scale_and_shortfalls_without_relaxing_proofs
+test_world_pair_cap: 4
+source_item_pair_cap: 1
+media_redistribution: false

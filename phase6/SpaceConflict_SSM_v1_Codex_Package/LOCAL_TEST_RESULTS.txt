@@ -1,0 +1,35 @@
+test_missing_raw_fails (test_contracts.ClosureTests.test_missing_raw_fails) ... ok
+test_valid_closure (test_contracts.ClosureTests.test_valid_closure) ... ok
+test_ambiguous_signature (test_contracts.StateTests.test_ambiguous_signature) ... ok
+test_bad_action (test_contracts.StateTests.test_bad_action) ... ok
+test_bad_noop (test_contracts.StateTests.test_bad_noop) ... ok
+test_bool_rejected (test_contracts.StateTests.test_bool_rejected) ... ok
+test_commutative (test_contracts.StateTests.test_commutative) ... ok
+test_complete_information_visible (test_contracts.StateTests.test_complete_information_visible) ... ok
+test_float_rejected (test_contracts.StateTests.test_float_rejected) ... ok
+test_harm (test_contracts.StateTests.test_harm) ... ok
+test_illegal_interchanged_state (test_contracts.StateTests.test_illegal_interchanged_state) ... ok
+test_index_duplicate (test_contracts.StateTests.test_index_duplicate) ... ok
+test_interchange_unchanged_donor (test_contracts.StateTests.test_interchange_unchanged_donor) ... ok
+test_interchange_unpatched_collision (test_contracts.StateTests.test_interchange_unpatched_collision) ... ok
+test_interchange_uses_recipient_a2 (test_contracts.StateTests.test_interchange_uses_recipient_a2) ... ok
+test_missing_not_score (test_contracts.StateTests.test_missing_not_score) ... ok
+test_negative_rejected (test_contracts.StateTests.test_negative_rejected) ... ok
+test_no_future_information (test_contracts.StateTests.test_no_future_information) ... ok
+test_no_native_set (test_contracts.StateTests.test_no_native_set) ... ok
+test_noop (test_contracts.StateTests.test_noop) ... ok
+test_null_signature (test_contracts.StateTests.test_null_signature) ... ok
+test_order_sensitive (test_contracts.StateTests.test_order_sensitive) ... ok
+test_partition_leak (test_contracts.StateTests.test_partition_leak) ... ok
+test_partition_ok (test_contracts.StateTests.test_partition_ok) ... ok
+test_program (test_contracts.StateTests.test_program) ... ok
+test_remove_illegal (test_contracts.StateTests.test_remove_illegal) ... ok
+test_rescue (test_contracts.StateTests.test_rescue) ... ok
+test_reverse_invalid (test_contracts.StateTests.test_reverse_invalid) ... ok
+test_set_control (test_contracts.StateTests.test_set_control) ... ok
+test_valid_zero (test_contracts.StateTests.test_valid_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.002s
+
+OK

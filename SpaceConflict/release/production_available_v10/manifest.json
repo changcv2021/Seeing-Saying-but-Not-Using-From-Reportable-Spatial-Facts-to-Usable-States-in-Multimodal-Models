@@ -1,0 +1,68 @@
+{
+  "claim_count": 19624,
+  "export_version": "production_available_v10",
+  "input_hashes": {
+    "candidates/unknown/claims.unknown_ca_train_production_v1.jsonl": "sha256:d5077c0ead2dc55a7d454171061939d8c202963665a7013ab17a0f7e8539eb87",
+    "candidates/unknown/claims.unknown_p1_v2.jsonl": "sha256:d653eca9323240bfb2d5c84b801fe8bb0eb43afe03d36d4f20a9f4301e5d1708",
+    "candidates/unknown/claims.unknown_spar_view_ablation_v4.jsonl": "sha256:8f2aa0c3f8ffca590a44ce3f283057346466d6bafb56f39a6a2bd08aba86be1b",
+    "data/staging/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/strict_multiview_v1/source_items.jsonl": "sha256:432f54cfae905aa3622918581d113bce0e83bcd0f2918a59bb2a212c1f3512c8",
+    "reports/quota.quota_production_available_v10.seed_20260826.json": "sha256:6ec350c26d682eb79193d82c761f66c6664431444a2ff6f51f3e7892c32ba37b",
+    "sampled/pairs.quota_production_available_v10.seed_20260826.jsonl": "sha256:e53ec0300b7bc6a086dbe9e780a9a1a00ed66b65ab328b7dbb19c004bd8dda44"
+  },
+  "media_redistributed": false,
+  "output_hashes": {
+    "release/production_available_v10/DATASET_CARD.md": "sha256:87fa82dcb8ef60d30cb26d4b9346aedd5f82f19534a6af597d61aa1e33f46ec5",
+    "release/production_available_v10/claims.jsonl": "sha256:fa3359f862fbe08bdcb70fcb4b4b0acd7f6d09e9b455500eb026f2f39e2491c8",
+    "release/production_available_v10/pairs.jsonl": "sha256:336e9032126edac05e6ec0b7ffaed3d724ddb47ad5b585289f55562e22155020",
+    "release/production_available_v10/unknown_challenge.jsonl": "sha256:bb1b35f626df67caf5af29232736c23ea0efbe71cba13dd47036a38420935e34"
+  },
+  "pair_count": 9812,
+  "quota_shortfalls": [
+    {
+      "actual": 9812,
+      "requirement": "target_pairs_min",
+      "target": 10000
+    },
+    {
+      "missing": [
+        "EMBODIED-OBS",
+        "IDENTITY"
+      ],
+      "requirement": "all_primary_tracks"
+    },
+    {
+      "actual": [
+        "continuous_video",
+        "multi_view_images",
+        "single_image"
+      ],
+      "missing": [
+        "interactive_episode",
+        "ordered_multi_frame"
+      ],
+      "requirement": "all_modalities"
+    },
+    {
+      "missing": [
+        "hypo3d"
+      ],
+      "requirement": "dataset_coverage"
+    },
+    {
+      "missing": [
+        "L4"
+      ],
+      "requirement": "level_coverage"
+    }
+  ],
+  "release_candidate_eligible": false,
+  "schema_version": "1.0",
+  "split_counts": {
+    "dev": 1505,
+    "test": 1546,
+    "train": 6761
+  },
+  "status": "VERIFIED_SLICE_EXPORTED",
+  "unknown_claim_count": 2000,
+  "upstream_acquisition_required": true
+}

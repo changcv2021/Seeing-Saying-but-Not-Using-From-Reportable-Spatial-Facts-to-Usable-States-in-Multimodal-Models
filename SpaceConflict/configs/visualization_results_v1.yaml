@@ -1,0 +1,102 @@
+schema_version: spaceconflict_visualization_results_v1
+release_version: composite_production_v10_l4_v3_3
+seed: 20260829
+
+inputs:
+  base_release_dir: release/production_available_v10
+  base_sampled_pairs: sampled/pairs.quota_production_available_v10.seed_20260826.jsonl
+  base_quota_report: reports/quota.quota_production_available_v10.seed_20260826.json
+  base_release_audit: reports/release_audit.production_available_v10.json
+  base_replay_audit: reports/replay_chain_audit.production_available_v10.json
+  base_shortcut_audit: reports/shortcut_controls.production_available_v10.json
+  l4_release_dir: l4/v3_3/release
+  l4_pair_file: l4/v3_3/release/pairs.l4_three_part_v3.jsonl
+  l4_unknown_file: l4/v3_3/release/unknown_challenge.l4_v3.jsonl
+  l4_manifest: l4/v3_3/release/manifest.json
+  l4_final_audit: reports/hypo3d_l4_v3/final_audit.v3_3.json
+  l4_native_report: l4/v3_3/native/reports/native_build_report.v3.json
+  l4_controlled_report: l4/v3_3/controlled/full/reports/controlled_build_report.v3.json
+  l4_unknown_report: l4/v3_3/unknown/reports/unknown_build_report.v3.json
+  l4_native_rejects: l4/v3_3/native/rejected/rejects.l4_native_v3.jsonl
+  l4_controlled_rejects: l4/v3_3/controlled/full/rejected/rejects.l4_controlled_v3.jsonl
+  source_registry: datasets.yaml
+  project_spec: PROJECT_SPEC.md
+  guide: SpaceConflict_Table_Visualization_Results_Guide_CN.md
+
+output_dir: visresult
+
+source_display_names:
+  spar: SPAR
+  ca_vqa: CA-VQA / CA-1M
+  vsi_bench: VSI-Bench
+  sti_bench: STI-Bench
+  omnispatial: OmniSpatial
+  hypo3d_native: Hypo3D Native
+  hypo3d_controlled: Controlled scenes
+
+source_metadata:
+  spar:
+    world_unit: Released source-normalized global_world_id
+    native_information: Spatial QA and spatial relation annotations
+    release_mode: Source references; redistribution follows upstream source
+  ca_vqa:
+    world_unit: ARKitScenes scene identifier
+    native_information: Multi-view QA, visibility, and cardinality evidence
+    release_mode: Source IDs and local materialization
+  vsi_bench:
+    world_unit: Dataset scene_name
+    native_information: Video-spatial QA with temporal evidence
+    release_mode: Source references
+  sti_bench:
+    world_unit: Released source-normalized global_world_id
+    native_information: Spatiotemporal QA over ordered video evidence
+    release_mode: Source references
+  omnispatial:
+    world_unit: Item or clip identifier
+    native_information: Claim-local spatial QA
+    release_mode: Source references
+  hypo3d_native:
+    world_unit: Base scene plus source branch
+    native_information: Source context change plus reconstructed post-state QA
+    release_mode: Source references
+  hypo3d_controlled:
+    world_unit: Base scene plus controlled branch
+    native_information: Static source GT plus deterministic controlled transition
+    release_mode: Derived annotations; upstream media referenced
+
+planned_tracks:
+  spar: [GEO-TOPO, XFORM-PROJ, IDENTITY]
+  ca_vqa: [GEO-TOPO, XFORM-PROJ, IDENTITY, EMBODIED-OBS]
+  vsi_bench: [DYNAMIC, XFORM-PROJ, GEO-TOPO]
+  sti_bench: [DYNAMIC, XFORM-PROJ]
+  omnispatial: [GEO-TOPO, XFORM-PROJ, IDENTITY, DYNAMIC]
+  hypo3d_native: [DYNAMIC, IDENTITY]
+  hypo3d_controlled: [DYNAMIC, IDENTITY, GEO-TOPO]
+
+analysis_policy:
+  unit_of_composition: minimal_pair
+  binary_claims_per_pair: 2
+  do_not_infer_missing_primary_track: true
+  l4_missing_track_label: Not annotated in released pair
+  base_unknown_reason: MISSING_VIEW
+  exact_duplicate_normalization: lowercase_alphanumeric_whitespace
+  tokenization: english_alphanumeric_apostrophe
+  near_duplicate_detector: not_run_no_declared_semantic_threshold
+  word_cloud: supplementary_only_by_level
+  word_cloud_groups: [L1, L2, L3, L4, UNKNOWN]
+  word_cloud_scope: Binary claims for L1-L4; all Unknown claims for UNKNOWN
+  word_cloud_reason: Informal object and scene-content overview with directional and temporal-relation terms removed; exact token-frequency and log-odds figures remain authoritative.
+  word_cloud_selection: sqrt(count) * (0.25 + log((G + 1) / (group_document_frequency + 0.5)))^2
+  word_cloud_selection_purpose: Downweight vocabulary shared by every level and emphasize level-distinctive content without changing exact counts.
+  word_cloud_layout: L1-L4 in a large 2x2 figure; Unknown in a separate figure
+
+colors:
+  L1: '#4C78A8'
+  L2: '#F58518'
+  L3: '#54A24B'
+  L4: '#E45756'
+  SUPPORTED: '#2A9D8F'
+  CONTRADICTORY: '#E76F51'
+  UNKNOWN: '#7A5195'
+  SOURCE_NATIVE: '#4C78A8'
+  BENCHMARK_CONTROLLED: '#F58518'

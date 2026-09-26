@@ -1,0 +1,9 @@
+rules_version: "1.0"
+rules:
+  - {rule_id: STRICT_ORDER_TRANSITIVITY, kind: derivation, requires_nonconcurrent_gt: true}
+  - {rule_id: SAME_INTERVAL_EXCLUSIVITY, kind: contradiction, required_context: [time_scope]}
+  - {rule_id: EXPLICIT_TRANSITION, kind: state_update, required_context: [pre_state, intervention, target_id, branch_id, post_state]}
+  - {rule_id: BRANCH_ISOLATION, kind: contradiction, required_context: [branch_id]}
+  - {rule_id: EXPLICIT_INVARIANT, kind: state_carryover, requires_source_invariant: true}
+forbidden: [implicit_frame_axiom, commonsense_state_copy, cross_branch_fact_copy]
+

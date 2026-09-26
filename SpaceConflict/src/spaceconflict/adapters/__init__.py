@@ -1,0 +1,2 @@
+"""Deterministic source-QA adapters."""
+

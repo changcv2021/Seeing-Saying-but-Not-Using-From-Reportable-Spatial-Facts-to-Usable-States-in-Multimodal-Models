@@ -1,0 +1,6 @@
+dataset: vsi_bench
+version: "1.0-draft"
+families: [whole_video, video_segment, first_appearance, route_sequence, latent_layout]
+required_context: [time_scope_when_segment_scoped]
+forbidden: [metric_measurement, route_difference_as_unreachability]
+

@@ -1,0 +1,31 @@
+schema_version: l4_controlled_v3
+seed: 20260829
+contract: contracts/l4_three_part_v3.yaml
+source_catalog: data/canonical/hypo3d_l4_v2_official_referit3d_fusion_v2_6/object_catalog.v2.json
+world_split: splits/world_split_hypo3d_v1.seed_20260826.jsonl
+count_scope_policy: OFFICIAL_REFERIT3D_EXACT_SCENE_CLASS_INSTANCE_SET_ONLY
+relation_policy: OFFICIAL_9DOF_STRICT_AXIS_SEPARATION_OR_3DSSG_EXPLICIT_RELATION
+grounding_policy: UNIQUE_NATURAL_REFERENCE_ONLY
+pilot:
+  scene_limit: 100
+  target_pairs: 180
+full:
+  target_pairs: 720
+operator_targets:
+  MOVE_TO_OPPOSITE_SIDE: 126
+  SWAP_POSITIONS: 126
+  REPLACE_AND_RECOUNT: 90
+  REPLACEMENT_IDENTITY: 90
+  REMOVE_AND_RECOUNT: 144
+  ADD_AND_RECOUNT: 144
+minimum_3dssg_relation_pairs: 75
+scene_pair_caps: {train: 6, dev: 6, test: 2}
+test_family_cap_per_world: 1
+combined_test_soft_target: 250
+calibration_actions: [REPLACEMENT_IDENTITY]
+calibration_max_fraction: 0.15
+single_operator_max_fraction: 0.25
+simple_add_remove_max_fraction: 0.40
+movement_relation_range: [0.30, 0.35]
+replacement_identity_range: [0.20, 0.25]
+quality_over_quota: true

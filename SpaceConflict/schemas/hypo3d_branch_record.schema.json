@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/hypo3d_branch_record.schema.json",
+  "type": "object",
+  "required": ["schema_version", "scene_id", "change_id", "question_id", "global_world_id", "branch_id", "change_type", "context_change_raw", "source_question_raw", "source_answer_raw", "question_type", "source_revision", "source_hash"],
+  "properties": {
+    "schema_version": {"const": "hypo3d_branch_record_v2"},
+    "scene_id": {"type": "string", "minLength": 1},
+    "branch_index": {"type": "integer", "minimum": 0},
+    "change_id": {"type": "string", "pattern": "^change_[0-9]{4}_[0-9a-f]{12}$"},
+    "question_id": {"type": "string", "minLength": 1},
+    "global_world_id": {"type": "string", "pattern": "^hypo3d:"},
+    "branch_id": {"type": "string", "pattern": "^hypo3d:.+:change_[0-9]{4}_[0-9a-f]{12}$"},
+    "change_type": {"enum": ["REMOVAL", "ADDITION", "REPLACEMENT", "MOVEMENT", "ATTRIBUTE", "UNKNOWN"]},
+    "context_change_raw": {"type": "string", "minLength": 1},
+    "source_question_raw": {"type": "string", "minLength": 1},
+    "source_answer_raw": {"type": "string", "minLength": 1},
+    "question_type": {"type": "string", "minLength": 1},
+    "source_revision": {"type": "string", "minLength": 1},
+    "source_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "source_field_paths": {"type": "array", "items": {"type": "string"}, "minItems": 4},
+    "media": {"type": "object"}
+  },
+  "additionalProperties": false
+}
+

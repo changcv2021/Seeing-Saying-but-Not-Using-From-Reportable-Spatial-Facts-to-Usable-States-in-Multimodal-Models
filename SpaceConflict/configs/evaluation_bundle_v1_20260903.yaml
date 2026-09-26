@@ -1,0 +1,30 @@
+schema_version: "spaceconflict_evaluation_bundle_config_v1"
+run_id: spaceconflict_evaluation_bundle_v1_20260903
+seed: 20260903
+target_root: external/project/iclr/spacebenchmark/SpaceConflict_Evaluation_Bundle_v1_20260903
+source_storage_root: external/upstream
+release_inputs:
+  l1_l3: release/production_available_v10
+  l4: l4/v3_3/release
+  l4_track_annotations: l4/v3_3/derived_annotations/track_annotations_v1
+content_policy:
+  include_all_questions_and_gold: true
+  include_release_referenced_media_when_locally_available: true
+  include_unavailable_media_records: true
+  include_upstream_unreferenced_media: false
+  internal_media_bundle_only: true
+  public_redistribution_authorized: false
+known_unavailable_revisions:
+  - dataset: spar
+    revision: 0fe664cbada1e7c1173fd743e0f781882eebf777
+    reason: upstream ScanNet, ScanNet++, Structured3D, and Matterport3D/RXR images were not redistributed by SPAR-7M
+expected_release_counts:
+  l1_l3_pairs: 9812
+  l1_l3_binary_claims: 19624
+  l1_l3_unknown: 2000
+  l1_l3_available_media_inputs: 14713
+  l1_l3_unavailable_media_inputs: 6911
+  l4_pairs: 1136
+  l4_binary_claims: 2272
+  l4_unknown: 300
+  l4_unique_media_files: 2205

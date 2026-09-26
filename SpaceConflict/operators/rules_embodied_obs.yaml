@@ -1,0 +1,6 @@
+rules_version: "1.0"
+rules:
+  - {rule_id: OBSERVABILITY_BOUNDARY, kind: evidence_scope, distinctions: [EXISTS_IN_WORLD, ANNOTATED_IN_FRAME, VISIBLE_IN_FRAME, OCCLUDED, OUT_OF_VIEW]}
+  - {rule_id: EXPLICIT_CONNECTIVITY_ORACLE, kind: reachability, requires_source_oracle: true}
+forbidden: [not_visible_implies_absent, route_difference_implies_unreachable, missing_annotation_implies_false]
+

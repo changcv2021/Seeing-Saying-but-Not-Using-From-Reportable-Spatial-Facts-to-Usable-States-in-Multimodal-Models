@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/construction_trace.schema.json",
+  "type": "object",
+  "required": ["trace_id", "source_records", "source_hashes", "adapter_version", "world_graph_hash", "evidence_fact_ids", "level", "primary_track", "operator", "before_graph", "after_graph", "edit_operations", "preserved_slots", "proof_template", "generator_version", "seed", "validation_results"],
+  "properties": {
+    "trace_id": {"type": "string"}, "source_records": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "source_hashes": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "adapter_version": {"type": "string"}, "world_graph_hash": {"type": "string"}, "evidence_fact_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "level": {"enum": ["L1", "L2", "L3", "L4"]}, "primary_track": {"enum": ["GEO-TOPO", "XFORM-PROJ", "IDENTITY", "DYNAMIC", "EMBODIED-OBS"]}, "secondary_tracks": {"type": "array", "items": {"type": "string"}}, "operator": {"type": "object", "required": ["operator_id", "operator_version"]}, "before_graph": {"type": "object"}, "after_graph": {"type": "object"}, "edit_operations": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["slot", "before", "after"]}}, "preserved_slots": {"type": "array", "items": {"type": "string"}}, "proof_template": {"type": "string"}, "language_plan": {"type": ["object", "null"]}, "generator_version": {"type": "string"}, "seed": {"type": "integer"}, "candidate_list": {"type": "array"}, "validation_results": {"type": "object"}, "reject_retry_history": {"type": "array"}
+  },
+  "additionalProperties": false
+}
+

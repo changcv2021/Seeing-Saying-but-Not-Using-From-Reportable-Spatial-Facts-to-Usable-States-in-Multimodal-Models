@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/local_transition_micrograph.schema.json",
+  "type": "object",
+  "required": ["schema_version", "global_world_id", "branch_id", "question_id", "pre_state_subgraph", "intervention", "post_state_oracle", "transition_certificate", "complete_world_graph"],
+  "properties": {
+    "schema_version": {"const": "local_transition_micrograph_v2"},
+    "global_world_id": {"type": "string", "pattern": "^hypo3d:"},
+    "branch_id": {"type": "string", "minLength": 1},
+    "question_id": {"type": "string", "minLength": 1},
+    "pre_state_subgraph": {
+      "type": "object",
+      "required": ["fact_ids", "scope", "ground_truth_policy"],
+      "properties": {
+        "fact_ids": {"type": "array", "items": {"type": "string"}},
+        "scope": {"const": "question_scoped"},
+        "ground_truth_policy": {"const": "STRUCTURED_SOURCE_ANNOTATION_ONLY"}
+      },
+      "additionalProperties": false
+    },
+    "target_resolution": {"type": ["object", "null"]},
+    "intervention": {
+      "type": "object",
+      "required": ["intervention_id", "type", "source_text", "parser_version", "parse_status"],
+      "properties": {
+        "intervention_id": {"type": "string"},
+        "type": {"enum": ["REMOVAL", "ADDITION", "REPLACEMENT", "MOVEMENT", "ATTRIBUTE"]},
+        "targets": {"type": "array", "items": {"type": "string"}},
+        "new_entities": {"type": "array", "items": {"type": "string"}},
+        "anchors": {"type": "array", "items": {"type": "string"}},
+        "explicit_relations": {"type": "array", "items": {"type": "object"}},
+        "source_text": {"type": "string", "minLength": 1},
+        "parser_version": {"const": "hypo3d_change_parser_v2_1"},
+        "parse_status": {"const": "PASS"}
+      },
+      "additionalProperties": true
+    },
+    "post_state_oracle": {"$ref": "post_state_oracle.schema.json"},
+    "transition_certificate": {
+      "type": "object",
+      "required": ["rule_ids", "affected_set_min", "certified_invariant_set", "invariant_coverage", "proof_scope", "full_transition_graph_available"],
+      "properties": {
+        "rule_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "affected_set_min": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "certified_invariant_set": {"type": "array", "items": {"type": "string"}},
+        "invariant_coverage": {"enum": ["NOT_USED", "NOT_USED_BY_SAMPLE", "SOURCE_CERTIFIED"]},
+        "proof_scope": {"const": "question_scoped"},
+        "full_transition_graph_available": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "complete_world_graph": {"const": false}
+  },
+  "additionalProperties": false
+}

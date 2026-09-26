@@ -1,0 +1,124 @@
+registry_version: "1.0"
+global_constraints:
+  min_unchanged_predicate_ratio: 0.70
+  max_predicate_complement_ratio: 0.20
+operators:
+  - operator_id: DIRECT_ENTITY_REBIND
+    version: "1.0"
+    family: entity_binding
+    subtype: subject_or_object_rebind
+    applicable_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, INSIDE, CONTAINS]
+    forbidden_predicates: []
+    required_gt_fields: [subject_id, object_id, explicit_refuting_fact]
+    required_rules: [same_scope_exclusivity]
+    changed_slots: [subject_id, object_id]
+    preserved_slots: [predicate, view_id, time_scope, state_id, branch_id, scope]
+    allowed_levels: [L1]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [IDENTITY]
+    proof_template: direct_entity_rebind_v1
+    rejection_checks: [replacement_entity_must_be_unique, recipient_fact_must_explicitly_refute_claim, co_truth_must_be_false]
+
+  - operator_id: PREDICATE_COMPLEMENT
+    version: "1.0"
+    family: predicate_change
+    subtype: exclusive_complement
+    applicable_predicates: [LEFT_OF, RIGHT_OF, ABOVE, BELOW, FRONT_OF, BEHIND, INSIDE, CONTAINS]
+    forbidden_predicates: [VISIBLE_IN_FRAME, OCCLUDED, OUT_OF_VIEW, EXISTS_IN_WORLD]
+    required_gt_fields: [explicit_relation]
+    required_rules: [same_scope_exclusivity]
+    changed_slots: [predicate]
+    preserved_slots: [subject_id, object_id, view_id, time_scope, state_id, branch_id, scope]
+    allowed_levels: [L1]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame, continuous_video]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: []
+    proof_template: predicate_complement_v1
+    rejection_checks: [predicate_pair_must_be_ontology_exclusive, global_ratio_cap]
+
+  - operator_id: RELATION_GRAPH_UNSAT
+    version: "1.0"
+    family: graph_constraint
+    subtype: strict_cycle_or_chain_violation
+    applicable_predicates: [LEFT_OF, RIGHT_OF, ABOVE, BELOW, BEFORE, AFTER, INSIDE, CONTAINS]
+    forbidden_predicates: [TOUCHING]
+    required_gt_fields: [fact_bundle]
+    required_rules: [authorized_transitivity, asymmetry]
+    changed_slots: [subject_id, object_id]
+    preserved_slots: [predicate, view_id, time_scope, state_id, branch_id, scope]
+    allowed_levels: [L2]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame, continuous_video]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [DYNAMIC]
+    proof_template: relation_graph_unsat_v1
+    rejection_checks: [two_to_four_irreducible_facts, ablation_must_be_unknown, no_unauthorized_transitivity]
+
+  - operator_id: WRONG_VIEW_ATTRIBUTION
+    version: "1.0"
+    family: context_transplant
+    subtype: view_rebind
+    applicable_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+    forbidden_predicates: [TOUCHING]
+    required_gt_fields: [view_id, per_view_relation, shared_instance_id]
+    required_rules: [same_view_relation_exclusivity]
+    changed_slots: [view_id]
+    preserved_slots: [subject_id, predicate, object_id, reference_frame, time_scope, state_id, branch_id]
+    allowed_levels: [L3]
+    allowed_modalities: [multi_view_images, ordered_multi_frame]
+    primary_track: XFORM-PROJ
+    possible_secondary_tracks: [IDENTITY, GEO-TOPO]
+    proof_template: wrong_view_attribution_v1
+    rejection_checks: [target_view_must_explicitly_refute_claim, identity_link_required, co_truth_must_be_false]
+
+  - operator_id: TIME_INTERVAL_MISBIND
+    version: "1.0"
+    family: context_transplant
+    subtype: time_scope_rebind
+    applicable_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, BEFORE, AFTER]
+    forbidden_predicates: []
+    required_gt_fields: [time_scope, relation_per_interval]
+    required_rules: [same_interval_exclusivity]
+    changed_slots: [time_scope]
+    preserved_slots: [subject_id, predicate, object_id, reference_frame, state_id, branch_id]
+    allowed_levels: [L3]
+    allowed_modalities: [continuous_video, ordered_multi_frame]
+    primary_track: DYNAMIC
+    possible_secondary_tracks: [XFORM-PROJ]
+    proof_template: time_interval_misbind_v1
+    rejection_checks: [intervals_must_be_nonoverlapping, target_interval_must_refute]
+
+  - operator_id: WRONG_TARGET_UPDATE
+    version: "1.0"
+    family: intervention_binding
+    subtype: target_rebind
+    applicable_predicates: [INSIDE, CONTAINS, LEFT_OF, RIGHT_OF, ABOVE, BELOW, EXISTS_IN_WORLD]
+    forbidden_predicates: []
+    required_gt_fields: [pre_state, intervention, target_id, branch_id, post_state]
+    required_rules: [explicit_transition]
+    changed_slots: [subject_id]
+    preserved_slots: [predicate, object_id, state_id, branch_id, time_scope]
+    allowed_levels: [L4]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame]
+    primary_track: DYNAMIC
+    possible_secondary_tracks: [IDENTITY, GEO-TOPO]
+    proof_template: wrong_target_update_v1
+    rejection_checks: [recipient_post_state_must_be_explicitly_refuted, branch_must_match, no_implicit_invariant]
+
+  - operator_id: BRANCH_LEAKAGE
+    version: "1.0"
+    family: intervention_context
+    subtype: branch_rebind
+    applicable_predicates: [INSIDE, CONTAINS, LEFT_OF, RIGHT_OF, ABOVE, BELOW, EXISTS_IN_WORLD, COUNT]
+    forbidden_predicates: []
+    required_gt_fields: [branch_id, explicit_post_state_per_branch]
+    required_rules: [branch_isolation]
+    changed_slots: [branch_id]
+    preserved_slots: [subject_id, predicate, object_id, state_id, time_scope]
+    allowed_levels: [L4]
+    allowed_modalities: [single_image, multi_view_images, ordered_multi_frame]
+    primary_track: DYNAMIC
+    possible_secondary_tracks: [IDENTITY, GEO-TOPO]
+    proof_template: branch_leakage_v1
+    rejection_checks: [both_branches_explicit, target_branch_refutes_claim, no_cross_branch_fact_copy]
+

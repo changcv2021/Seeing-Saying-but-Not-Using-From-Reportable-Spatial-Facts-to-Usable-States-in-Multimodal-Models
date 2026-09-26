@@ -1,0 +1,33 @@
+dataset_name: vsi_bench
+contract_version: "1.1"
+extends: vsi_bench.yaml@1.0-draft
+change_policy: additive_versioned_extension
+world_unit: {keys: [base_dataset, scene_name], media_group: parent_video}
+media_grouping: [continuous_video, ordered_multi_frame]
+native_gt_sources: [scene_metadata, whole_video_qa, segment_qa, appearance_order, route_order]
+node_types: [WORLD, VIDEO, SEGMENT, OBJECT, EVENT, ROUTE_STEP]
+native_fact_rules: [explicit_scene_metadata]
+qa_to_fact_rules: [exact_count, qualitative_direction, appearance_order, route_order, scoped_relation]
+identity_policy: {merge_allowed_when: [official_track_id, explicit_correspondence], merge_forbidden_when: [scene_bbox_index_as_frame_track]}
+reference_frame_policy: source_declared_only
+time_scope_policy: preserve_whole_video_and_segment_scope
+state_branch_policy: observed_actual_only
+observability_policy: question_evidence_video_must_exist
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, BEFORE, AFTER, COUNT]
+authorized_rules: [INVERSE_RELATION, STRICT_ORDER_TRANSITIVITY, SAME_SCOPE_EXCLUSIVITY]
+allowed_levels: [L1, L2, L3]
+allowed_tracks: [DYNAMIC, XFORM-PROJ, GEO-TOPO, IDENTITY]
+valid_level_track_cells: {L1: [GEO-TOPO], L2: [GEO-TOPO, DYNAMIC], L3: [DYNAMIC, XFORM-PROJ, GEO-TOPO]}
+allowed_operators: [COUNT_SCOPE_ERROR, APPEARANCE_ORDER_ERROR, ROUTE_ORDER_ERROR, WHOLE_VIDEO_VS_SEGMENT_SCOPE_ERROR, WORLD_DIRECTION_REBIND, LATENT_LAYOUT_CONFLICT, RELATION_GRAPH_UNSAT]
+operator_constraints:
+  RELATION_GRAPH_UNSAT:
+    allowed_predicates: [BEFORE, AFTER]
+    required_rules: [STRICT_ORDER_TRANSITIVITY, SAME_SCOPE_EXCLUSIVITY]
+    required_scope: whole_video
+    allowed_levels: [L2]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [DYNAMIC]
+    reject_if: [direct_conclusion_present, multiple_proof_paths, non_irreducible_chain, cross_context_chain]
+forbidden_tasks: [absolute_distance, relative_metric_distance, object_size, room_size, measurement_estimation, reachability_without_connectivity_oracle]
+reject_conditions: [unverified_track_identity, incomplete_route_claimed_unreachable]
+redistribution_policy: preserve_underlying_source_terms

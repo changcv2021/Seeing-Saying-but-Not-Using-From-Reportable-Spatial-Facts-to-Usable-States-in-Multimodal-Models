@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "accelerate": "1.14.0",
+    "huggingface_hub": "1.29.0",
+    "numpy": "1.26.4",
+    "packaging": "25.0",
+    "psutil": "7.2.1",
+    "pyyaml": "6.0.3",
+    "safetensors": "0.8.0",
+    "torch": "2.8.0+cu126",
+    "tqdm": "4.67.1",
+    "transformers": "5.16.0.dev0"
+  },
+  "gpu_smoke_complete": false,
+  "job_id": "8310541",
+  "overlay": "artifacts/model_results/pss_20260922_v1/approved_v2/environment/peft_overlay",
+  "peft": "0.21.0",
+  "prerelease_policy": "Existing explicitly pinned transformers 5.16.0.dev0; PEP440 contains(prereleases=True)",
+  "python": "python",
+  "shared_environment_modified": false,
+  "status": "PASS_CPU_IMPORT_ONLY",
+  "torch": "2.8.0+cu126",
+  "transformers": "5.16.0.dev0",
+  "wheel": "artifacts/model_results/pss_20260922_v1/approved_v2/environment/peft-0.21.0-py3-none-any.whl",
+  "wheel_sha256": "b64eb75fd9dece7401c70e675b8d9de024993b70483691b41c62876f0c7809b7"
+}

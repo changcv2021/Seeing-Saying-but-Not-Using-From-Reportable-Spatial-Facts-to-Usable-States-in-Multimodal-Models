@@ -1,0 +1,26 @@
+ontology_version: "1.0"
+open_world: true
+absence_is_negative: false
+fact_origins: [NATIVE_DIRECT, QA_DIRECT, RULE_DERIVED, GEOMETRY_DERIVED, MODEL_PREDICTED]
+benchmark_gt_origins: [NATIVE_DIRECT, QA_DIRECT, RULE_DERIVED, GEOMETRY_DERIVED]
+observability: [directly_observable, derived_from_observable, oracle_only]
+core_allowed_observability: [directly_observable, derived_from_observable]
+predicates:
+  LEFT_OF: {inverse: RIGHT_OF, asymmetric: true, transitive_only_when_authorized: true}
+  RIGHT_OF: {inverse: LEFT_OF, asymmetric: true, transitive_only_when_authorized: true}
+  FRONT_OF: {inverse: BEHIND, asymmetric: true, transitive_only_when_authorized: false}
+  BEHIND: {inverse: FRONT_OF, asymmetric: true, transitive_only_when_authorized: false}
+  ABOVE: {inverse: BELOW, asymmetric: true, transitive_only_when_authorized: true}
+  BELOW: {inverse: ABOVE, asymmetric: true, transitive_only_when_authorized: true}
+  INSIDE: {inverse: CONTAINS, asymmetric: true, transitive_only_when_authorized: true}
+  CONTAINS: {inverse: INSIDE, asymmetric: true, transitive_only_when_authorized: true}
+  TOUCHING: {symmetric: true, transitive: false}
+  VISIBLE_IN_FRAME: {scope_required: current_frame, complement_is_not: OUT_OF_VIEW}
+  OCCLUDED: {scope_required: current_frame, complement_is_not: ABSENT}
+  OUT_OF_VIEW: {scope_required: current_frame, complement_is_not: ABSENT}
+  EXISTS_IN_WORLD: {scope_required: whole_world}
+  BEFORE: {inverse: AFTER, asymmetric: true, requires_nonconcurrent_gt: true}
+  AFTER: {inverse: BEFORE, asymmetric: true, requires_nonconcurrent_gt: true}
+  COUNT: {exact_integer_only: true, scope_required: true}
+forbidden_numeric_dependencies: [DISTANCE, DEPTH, SPEED, ACCELERATION, DISPLACEMENT, SIZE, ANGLE, POSE_MATRIX, DURATION, PATH_LENGTH, THRESHOLDED_CONTINUOUS_VALUE]
+

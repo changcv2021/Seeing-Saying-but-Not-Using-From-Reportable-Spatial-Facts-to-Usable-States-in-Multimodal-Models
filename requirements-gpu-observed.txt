@@ -1,0 +1,14 @@
+# Observed environment, not a claim that every version is available on public PyPI.
+# Install a supported CUDA-specific torch distribution for your own machine.
+torch==2.8.0
+accelerate==1.14.0
+peft==0.21.0
+safetensors==0.8.0
+numpy==1.26.4
+PyYAML==6.0.3
+packaging==25.0
+psutil==7.2.1
+tqdm==4.67.1
+# Historical transformers version: 5.16.0.dev0. Obtain the exact recorded source
+# revision/environment separately; a dev version string alone is not an immutable pin.
+# Additional architecture runtimes may need torchvision, Pillow and video backends.

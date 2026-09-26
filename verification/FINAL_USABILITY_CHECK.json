@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "changed_files": [
+    "tools/reproduce_sft_results.py",
+    "README.md",
+    "docs/TRAINING.md"
+  ],
+  "reason": "Allow repeatable explicit output paths without overwriting delivered verification.",
+  "metrics_rerun": true,
+  "models": 13,
+  "public_source_data_changed": false,
+  "training_distribution_note": "Original train/test label frequencies disclosed; no split was changed."
+}

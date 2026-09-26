@@ -1,0 +1,38 @@
+registry_version: l4_three_part_operator_registry_v3
+operators:
+  NATIVE_COUNT_POST_FACT:
+    origin: SOURCE_NATIVE
+    changed_slot: value
+    allowed_predicate: COUNT
+  NATIVE_RELATION_COMPLEMENT:
+    origin: SOURCE_NATIVE
+    changed_slot: predicate
+    allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW]
+  NATIVE_EXISTENCE_FLIP:
+    origin: SOURCE_NATIVE
+    changed_slot: value
+    allowed_predicate: EXISTS_IN_WORLD
+  REMOVE_AND_RECOUNT:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: value
+    dependency_type: CORE
+  ADD_AND_RECOUNT:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: value
+    dependency_type: CORE
+  REPLACE_AND_RECOUNT:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: value
+    dependency_type: CORE
+  REPLACEMENT_IDENTITY:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: value
+    dependency_type: CALIBRATION
+  MOVE_TO_OPPOSITE_SIDE:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: predicate
+    dependency_type: CORE
+  SWAP_POSITIONS:
+    origin: BENCHMARK_CONTROLLED
+    changed_slot: predicate
+    dependency_type: CORE

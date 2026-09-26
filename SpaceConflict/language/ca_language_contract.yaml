@@ -1,0 +1,6 @@
+dataset: ca_vqa
+version: "1.0-draft"
+families: [direct_factual, context_first, reference_support_frame, current_frame_scope, whole_world_scope]
+required_context: [reference_frame, count_scope_when_counting]
+forbidden: [frame_world_scope_elision, visibility_existence_conflation, numeric_geometry]
+

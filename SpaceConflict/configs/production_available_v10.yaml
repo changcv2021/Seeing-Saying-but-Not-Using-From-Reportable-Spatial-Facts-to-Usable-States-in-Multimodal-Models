@@ -1,0 +1,28 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+quota_version: quota_production_available_v10
+export_version: production_available_v10
+proof_candidate_paths:
+  - candidates/auto_accepted/pairs.proof_verification_p1_v2.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_ca_train_production_v1.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_l2_relation_graph_v1.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_spar_7m_l1_v1.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_spar_7m_l2_bbox_v3.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_spar_7m_l3_xform_v1.jsonl
+unknown_claim_paths:
+  - candidates/unknown/claims.unknown_p1_v2.jsonl
+  - candidates/unknown/claims.unknown_ca_train_production_v1.jsonl
+  - candidates/unknown/claims.unknown_spar_view_ablation_v4.jsonl
+media_reference_enrichment_paths:
+  - data/staging/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/strict_multiview_v1/source_items.jsonl
+target_pairs_min: 10000
+target_pairs_max: 10000
+unknown_claims: 2000
+test_world_pair_cap: 4
+non_test_world_pair_cap: 16
+bucket_pair_caps:
+  spar: {L1: 1100, L2: 1000, L3: 800}
+require_all_primary_tracks: true
+require_all_modalities: true
+quality_policy: merge_only_independently_verified_inputs_report_all_shortfalls

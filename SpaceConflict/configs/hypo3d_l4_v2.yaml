@@ -1,0 +1,36 @@
+schema_version: "hypo3d_l4_v2"
+seed: 20260828
+contract: contracts/hypo3d_l4_v2.yaml
+operator_registry: operators/hypo3d_l4_operator_registry_v2.yaml
+source_revision: ffb21ab198e8d666b63e062d931ed33b60c67d0f
+transition_mode: question_scoped_local_micrograph
+require_full_post_graph: false
+require_full_affected_set: false
+require_full_invariant_set: false
+require_affected_set_min: true
+allowed_change_types: [REMOVAL, ADDITION, REPLACEMENT, MOVEMENT, ATTRIBUTE]
+operator_tiers: {enable_tier_a: true, enable_tier_b: false, enable_tier_c: false}
+identity:
+  allowed_resolution_tiers: [NATIVE_ID, ANNOTATION_ALIGNED, UNIQUE_REFERENTIAL]
+  reject_model_only_identity: true
+  require_unique_target_candidate: true
+strength:
+  min_core_ratio: 0.85
+  max_calibration_ratio: 0.15
+  core_requires_necessary_pre_state: true
+  calibration_allows_empty_pre_state: true
+validation:
+  require_source_reconstruction: true
+  require_transition_replay: true
+  require_no_unprovided_accessible_premise: true
+  require_co_truth_false: true
+  require_graph_text_roundtrip: true
+  require_oracle_consistency_verifier: true
+  require_accessible_evidence_verifier: true
+production:
+  golden_target: 200
+  pilot_target: 500
+  final_soft_target_min: 500
+  final_soft_target_max: 1000
+  do_not_force_quota: true
+

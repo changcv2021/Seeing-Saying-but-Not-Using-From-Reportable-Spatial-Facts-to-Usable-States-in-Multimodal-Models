@@ -1,0 +1,17 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+quota_version: quota_production_available_v2
+export_version: production_available_v2
+proof_candidate_paths:
+  - candidates/auto_accepted/pairs.proof_verification_p1_v2.jsonl
+  - candidates/auto_accepted/pairs.proof_verification_ca_train_available_v1.jsonl
+unknown_claim_paths:
+  - candidates/unknown/claims.unknown_p1_v2.jsonl
+  - candidates/unknown/claims.unknown_ca_train_available_v1.jsonl
+target_pairs_min: 10000
+target_pairs_max: 10000
+unknown_claims: 2000
+require_all_primary_tracks: true
+require_all_modalities: true
+quality_policy: merge_only_independently_verified_inputs_report_all_shortfalls

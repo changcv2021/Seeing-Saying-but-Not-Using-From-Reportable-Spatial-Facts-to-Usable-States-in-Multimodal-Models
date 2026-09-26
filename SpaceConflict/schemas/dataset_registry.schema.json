@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/dataset_registry.schema.json",
+  "type": "object",
+  "required": ["schema_version", "snapshot_date", "datasets"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "snapshot_date": {"type": "string", "format": "date"},
+    "datasets": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["display_name", "enabled", "status"],
+        "properties": {
+          "display_name": {"type": "string", "minLength": 1},
+          "enabled": {"enum": [true, false, "conditional"]},
+          "status": {"enum": ["DISCOVERED", "LICENSE_RECORDED", "DOWNLOADED", "PROFILED", "CONTRACT_VALID", "ADAPTER_VALID", "WORLD_INDEX_VALID", "GRAPH_VALID", "BLOCKED_ACCESS", "BLOCKED_LICENSE", "BLOCKED_SOURCE"]},
+          "repo_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+          "planned_levels": {"type": "array", "items": {"enum": ["L1", "L2", "L3", "L4"]}, "uniqueItems": true},
+          "planned_tracks": {"type": "array", "items": {"enum": ["GEO-TOPO", "XFORM-PROJ", "IDENTITY", "DYNAMIC", "EMBODIED-OBS"]}, "uniqueItems": true}
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/l4_certificate_v2.schema.json",
+  "type": "object",
+  "required": ["certificate_id", "label", "level", "strength_slice", "label_provenance_certificate", "accessible_reasoning_certificate", "dependency_checks", "co_truth_possible", "requires_unprovided_fact"],
+  "properties": {
+    "certificate_id": {"type": "string", "minLength": 1},
+    "label": {"enum": ["SUPPORTED", "CONTRADICTORY"]},
+    "level": {"const": "L4"},
+    "strength_slice": {"enum": ["L4_CORE", "L4_CALIBRATION"]},
+    "label_provenance_certificate": {
+      "type": "object",
+      "required": ["post_oracle_id", "source_reconstruction", "oracle_consistency_verifier"],
+      "properties": {
+        "post_oracle_id": {"type": "string"},
+        "source_reconstruction": {"const": "PASS"},
+        "oracle_consistency_verifier": {"const": "PASS"}
+      },
+      "additionalProperties": true
+    },
+    "accessible_reasoning_certificate": {
+      "type": "object",
+      "required": ["proof_nodes", "proof_edges", "forbidden_premises_absent", "accessible_evidence_verifier"],
+      "properties": {
+        "proof_nodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "type"],
+            "properties": {
+              "id": {"type": "string"},
+              "type": {"enum": ["SOURCE_PRE_FACT", "TARGET_RESOLUTION", "INTERVENTION", "TRANSITION_RULE", "DERIVED_POST_FACT", "CLAIM_ATOM", "CONTRADICTION", "CORRECTION"]}
+            },
+            "additionalProperties": true
+          }
+        },
+        "proof_edges": {"type": "array"},
+        "forbidden_premises_absent": {"const": true},
+        "accessible_evidence_verifier": {"const": "PASS"}
+      },
+      "additionalProperties": true
+    },
+    "dependency_checks": {
+      "type": "object",
+      "required": ["scene_only_label", "change_only_label", "full_input_label", "status"],
+      "properties": {
+        "scene_only_label": {"enum": ["SUPPORTED", "CONTRADICTORY", "UNKNOWN"]},
+        "change_only_label": {"enum": ["SUPPORTED", "CONTRADICTORY", "UNKNOWN"]},
+        "full_input_label": {"enum": ["SUPPORTED", "CONTRADICTORY"]},
+        "status": {"const": "PASS"}
+      },
+      "additionalProperties": false
+    },
+    "co_truth_possible": {"const": false},
+    "requires_unprovided_fact": {"const": false}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"strength_slice": {"const": "L4_CORE"}}},
+      "then": {"properties": {"dependency_checks": {"properties": {"scene_only_label": {"const": "UNKNOWN"}, "change_only_label": {"const": "UNKNOWN"}}}}}
+    }
+  ],
+  "additionalProperties": true
+}
+

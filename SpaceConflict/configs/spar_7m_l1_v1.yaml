@@ -1,0 +1,20 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+claim_build_version: claim_build_spar_7m_l1_v1
+world_graph_manifest: world_graphs/manifest.world_graph_spar_7m_relation_v2.jsonl
+canonical_record_paths:
+  - data/canonical/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/canonical_spar_7m_relation_v2/records.jsonl
+target_pairs: 1400
+oversample_factor: 1
+allowed_levels: [L1]
+allowed_media_types: [single_image]
+enable_l2_transitive: false
+source_item_pair_cap: 2
+dataset_pair_caps: {spar: 1400}
+test_world_pair_cap: 4
+non_test_world_pair_cap: 16
+source_scope: spar_7m_single_image_nonmetric_qualitative_relations
+quality_policy: exact_choice_or_directional_semantic_reconstruction_bbox_grounded_metric_depth_excluded
+media_validation_scope: official_annotation_path_and_bbox_references_only
+media_redistribution: false

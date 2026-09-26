@@ -1,0 +1,10 @@
+schema_version: "1.0"
+run_stage: P1
+seed: 20260826
+target_pairs: 2000
+level_targets: {L1: 500, L2: 500, L3: 500, L4: 500}
+oversample_factor: 4
+min_cell_acceptance_rate: 0.40
+on_low_acceptance: record_shortfall_and_reallocate_same_level
+required_reports: [structural_pass_rate, verifier_pass_rate, final_acceptance_rate, unknown_rate, roundtrip_failure_rate, duplicate_rate, text_only_leakage, cost_per_accepted_pair, pairs_per_world]
+

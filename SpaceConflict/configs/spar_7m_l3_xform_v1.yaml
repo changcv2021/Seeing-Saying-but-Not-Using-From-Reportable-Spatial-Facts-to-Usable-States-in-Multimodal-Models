@@ -1,0 +1,27 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+claim_build_version: claim_build_spar_7m_l3_xform_v1
+world_graph_manifest: world_graphs/manifest.world_graph_spar_7m_relation_v2.jsonl
+canonical_record_paths:
+  - data/canonical/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/canonical_spar_7m_relation_v2/records.jsonl
+source_item_allowlist: data/staging/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/strict_multiview_v1/source_items.jsonl
+target_pairs: 1000
+oversample_factor: 1
+allowed_levels: [L3]
+allowed_media_types: [multi_view_images]
+spatial_level_overrides:
+  spar:
+    level: L3
+    primary_track: XFORM-PROJ
+    secondary_tracks: [GEO-TOPO]
+enable_l2_transitive: false
+source_item_pair_cap: 1
+dataset_pair_caps: {spar: 1000}
+test_world_pair_cap: 4
+non_test_world_pair_cap: 16
+source_scope: spar_7m_required_bbox_grounding_outside_primary_view
+quality_policy: source_reconstruction_required_support_view_ablation_and_independent_proof_required
+media_validation_scope: official_annotation_path_and_bbox_references_only
+media_redistribution: false
+

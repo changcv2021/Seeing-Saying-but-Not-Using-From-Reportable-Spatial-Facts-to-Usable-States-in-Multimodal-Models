@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/l4_pair_v3.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version", "pair_id", "level", "l4_origin", "native_subtype",
+    "dependency_type", "transition_family", "grounding_mode", "global_world_id",
+    "base_scene_id", "branch_id", "split", "model_input", "pre_state_reference",
+    "intervention", "post_state_reference", "supported_claim", "contradictory_claim",
+    "edit", "certificate_id", "construction_trace_id", "media", "validation"
+  ],
+  "properties": {
+    "schema_version": {"const": "spaceconflict_l4_pair_v3"},
+    "pair_id": {"type": "string", "minLength": 1},
+    "level": {"const": "L4"},
+    "l4_origin": {"enum": ["SOURCE_NATIVE", "BENCHMARK_CONTROLLED"]},
+    "native_subtype": {"type": ["string", "null"], "enum": ["DIRECT", "AGGREGATED", null]},
+    "dependency_type": {"enum": ["CORE", "CALIBRATION"]},
+    "transition_family": {"enum": ["REMOVAL", "ADDITION", "REPLACEMENT", "MOVEMENT", "ATTRIBUTE", "INVARIANT"]},
+    "grounding_mode": {"enum": ["NATIVE_ID", "UNIQUE_REFERENCE", "MARKED_OBJECT"]},
+    "global_world_id": {"type": "string", "pattern": "^hypo3d:"},
+    "base_scene_id": {"type": "string", "minLength": 1},
+    "branch_id": {"type": "string", "minLength": 1},
+    "split": {"enum": ["train", "dev", "test"]},
+    "model_input": {
+      "type": "object",
+      "required": ["media_ids", "intervention_text"],
+      "properties": {
+        "media_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "intervention_text": {"type": "string", "minLength": 1}
+      }
+    },
+    "pre_state_reference": {"type": "object"},
+    "intervention": {"type": "object"},
+    "post_state_reference": {"type": "object"},
+    "supported_claim": {"$ref": "#/$defs/claim"},
+    "contradictory_claim": {"$ref": "#/$defs/claim"},
+    "edit": {
+      "type": "object",
+      "required": ["changed_slots", "preserved_slots"],
+      "properties": {
+        "changed_slots": {"type": "array", "minItems": 1, "maxItems": 1, "items": {"type": "string"}},
+        "preserved_slots": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "certificate_id": {"type": "string", "minLength": 1},
+    "construction_trace_id": {"type": "string", "minLength": 1},
+    "media": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/media_item"}
+    },
+    "validation": {
+      "type": "object",
+      "required": ["final_status", "world_split", "intervention_visible"],
+      "properties": {
+        "final_status": {"const": "AUTO_ACCEPTED"},
+        "world_split": {"const": "PASS"},
+        "intervention_visible": {"const": "PASS"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"l4_origin": {"const": "SOURCE_NATIVE"}}},
+      "then": {"properties": {"native_subtype": {"enum": ["DIRECT", "AGGREGATED"]}}}
+    },
+    {
+      "if": {"properties": {"l4_origin": {"const": "BENCHMARK_CONTROLLED"}}},
+      "then": {"properties": {"native_subtype": {"type": "null"}}}
+    }
+  ],
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "required": ["graph", "text"],
+      "properties": {
+        "graph": {"type": "object", "required": ["predicate", "subject", "state"]},
+        "text": {"type": "string", "minLength": 1}
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

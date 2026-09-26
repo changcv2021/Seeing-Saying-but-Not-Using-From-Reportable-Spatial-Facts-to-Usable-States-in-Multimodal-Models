@@ -1,0 +1,23 @@
+dataset_name: sti_bench
+contract_version: "1.0-draft"
+world_unit: {keys: [source, video_id], media_group: video}
+media_grouping: [continuous_video]
+native_gt_sources: [qa.parquet, video.zip]
+node_types: [VIDEO, TIME_INTERVAL, QA_ITEM, SUBJECT, OBJECT, EVENT]
+native_fact_rules: [explicit_interval_metadata]
+qa_to_fact_rules: [categorical_spatial_relation, categorical_trajectory_stage, strict_event_order]
+identity_policy: {merge_allowed_when: [explicit_source_referent_id], merge_forbidden_when: [description_similarity]}
+reference_frame_policy: explicit_source_frame_only
+time_scope_policy: explicit_interval_required
+state_branch_policy: observed_actual_only
+observability_policy: referenced_video_interval_must_resolve
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, BEFORE, AFTER]
+authorized_rules: [INVERSE_RELATION, STRICT_ORDER_TRANSITIVITY, SAME_INTERVAL_EXCLUSIVITY]
+allowed_levels: [L3]
+allowed_tracks: [DYNAMIC, XFORM-PROJ, GEO-TOPO]
+valid_level_track_cells: {L3: [DYNAMIC, XFORM-PROJ, GEO-TOPO]}
+allowed_operators: [TIME_INTERVAL_MISBIND, RELATION_AT_TIME_MISBIND, SUBJECT_OBJECT_REBIND, TRAJECTORY_STAGE_ORDER_ERROR]
+forbidden_tasks: [3d_box, pose_matrix, orientation_angle, dimension, distance, displacement, path_length, speed, acceleration, continuous_numeric_answer]
+reject_conditions: [ambiguous_interval, missing_video, numeric_dependency]
+redistribution_policy: blocked_until_repository_dataset_and_underlying_video_terms_are_reconciled
+

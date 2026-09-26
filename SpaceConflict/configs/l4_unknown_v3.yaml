@@ -1,0 +1,17 @@
+schema_version: l4_unknown_v3
+seed: 20260829
+contract: contracts/l4_three_part_v3.yaml
+target_claims: 300
+reason_targets:
+  MISSING_PRE_COUNT: 75
+  REFERENCE_FRAME_AMBIGUITY: 75
+  UNRESOLVED_POST_IDENTITY: 75
+  POST_STATE_UNDERSPECIFIED: 75
+evidence_ablation_reasons: [MISSING_PRE_COUNT, REFERENCE_FRAME_AMBIGUITY, UNRESOLVED_POST_IDENTITY]
+evidence_ablation_min_fraction: 0.50
+single_reason_max_fraction: 0.25
+single_source_max_fraction: 0.40
+max_per_test_world: 1
+require_positive_and_negative_witness: true
+reject_pipeline_failures: true
+

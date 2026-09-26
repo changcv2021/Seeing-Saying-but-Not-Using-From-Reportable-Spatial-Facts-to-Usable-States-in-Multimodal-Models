@@ -1,0 +1,20 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+claim_build_version: claim_build_spar_7m_l2_bbox_v1
+world_graph_manifest: world_graphs/manifest.world_graph_spar_7m_bbox_identity_l2_v1.jsonl
+canonical_record_paths:
+  - data/canonical/spar/0fe664cbada1e7c1173fd743e0f781882eebf777/canonical_spar_7m_bbox_identity_l2_v1/records.jsonl
+target_pairs: 200
+oversample_factor: 1
+allowed_levels: [L2]
+allowed_media_types: [single_image]
+enable_l2_transitive: true
+source_item_pair_cap: 4
+dataset_pair_caps: {spar: 200}
+test_world_pair_cap: 4
+non_test_world_pair_cap: 16
+source_scope: spar_7m_single_image_exact_image_and_bbox_annotation_identity
+quality_policy: unique_two_fact_transitive_path_no_direct_conclusion_each_premise_ablation_unknown
+media_validation_scope: official_annotation_path_and_bbox_references_only_no_local_pixel_bytes
+media_redistribution: false

@@ -1,0 +1,11 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+quota_version: quota_production_available_v1
+export_version: production_available_v1
+target_pairs_min: 10000
+target_pairs_max: 10000
+unknown_claims: 2000
+require_all_primary_tracks: true
+require_all_modalities: true
+quality_policy: report_actual_scale_and_shortfalls_without_relaxing_proofs

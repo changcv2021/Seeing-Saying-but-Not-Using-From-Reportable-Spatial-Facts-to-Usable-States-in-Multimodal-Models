@@ -1,0 +1,9 @@
+rules_version: "1.0"
+rules:
+  - {rule_id: INVERSE_RELATION, kind: equivalence, requires_same_context: true}
+  - {rule_id: SAME_SCOPE_EXCLUSIVITY, kind: contradiction, requires_same_context: true}
+  - {rule_id: AUTHORIZED_DIRECTION_TRANSITIVITY, kind: derivation, predicates: [LEFT_OF, RIGHT_OF, ABOVE, BELOW], max_premises: 3}
+  - {rule_id: CONTAINMENT_TRANSITIVITY, kind: derivation, predicates: [INSIDE, CONTAINS], max_premises: 3}
+forbidden:
+  - {predicate: TOUCHING, rule: transitivity}
+

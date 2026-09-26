@@ -1,0 +1,9 @@
+schema_version: "1.0"
+run_stage: UNKNOWN
+seed: 20260826
+target_claims: 2000
+min_evidence_ablation_ratio: 0.50
+reason_codes: [MISSING_VIEW, MISSING_TIME_SEGMENT, UNRESOLVED_IDENTITY, REFERENCE_FRAME_AMBIGUITY, OCCLUDED_VS_ABSENT, COUNT_SCOPE_INCOMPLETE, NO_CONNECTIVITY_ORACLE, POST_STATE_UNDERSPECIFIED, MULTIPLE_VALID_COMPLETIONS]
+require_positive_witness: true
+require_negative_witness: true
+

@@ -1,0 +1,8 @@
+schema_version: "1.0"
+run_stage: P2
+seed: 20260826
+proof_verification_version: proof_verification_ca_train_production_v1
+unknown_version: unknown_ca_train_production_v1
+target_claims: 2000
+source_scope: ca_vqa_train_production_binary_cardinality_multichoice_test_worlds
+quality_policy: evidence_ablation_only_report_shortfall_without_relaxing_witness_checks

@@ -1,0 +1,94 @@
+{
+  "by_level": [
+    {
+      "level": "L1",
+      "n": 10072,
+      "split": "train"
+    },
+    {
+      "level": "L2",
+      "n": 1176,
+      "split": "train"
+    },
+    {
+      "level": "L3",
+      "n": 1188,
+      "split": "train"
+    },
+    {
+      "level": "L4",
+      "n": 1040,
+      "split": "train"
+    },
+    {
+      "level": "L1",
+      "n": 2334,
+      "split": "dev"
+    },
+    {
+      "level": "L2",
+      "n": 294,
+      "split": "dev"
+    },
+    {
+      "level": "L3",
+      "n": 236,
+      "split": "dev"
+    },
+    {
+      "level": "L4",
+      "n": 403,
+      "split": "dev"
+    },
+    {
+      "level": "L1",
+      "n": 3654,
+      "split": "test"
+    },
+    {
+      "level": "L2",
+      "n": 462,
+      "split": "test"
+    },
+    {
+      "level": "L3",
+      "n": 976,
+      "split": "test"
+    },
+    {
+      "level": "L4",
+      "n": 516,
+      "split": "test"
+    }
+  ],
+  "code_sha256": "6d99073e073aa7d4c00312acbcc6a8b3c02b099818c1b67fb06817c8d2afc16f",
+  "files": {
+    "data/dev/private_gold.jsonl": "780c43589a79ab7aa976b408e31f8f8fd6b81b045997ae7e4f6cb4e9a1667b06",
+    "data/dev/requests.jsonl": "05370e028588c2af2ddadf3b9634eb6d9e46481a96fe3b6ad9cc582e9aefcbe0",
+    "data/test/private_gold.jsonl": "1b98b084e2fd0429282470703038d5c159c9dec9a9fc5b2db76d9f47fefec031",
+    "data/test/requests.jsonl": "a7757a96e3b43982230c474e90b23d5ae83f0c307854e14cb5426d0fbba625b6",
+    "data/train/private_gold.jsonl": "1a31965d0297af0748aadbfd1c16e0fdb3fd4e99263a7770d52c66094ad4f887",
+    "data/train/requests.jsonl": "5a4a26b7af305559c6b4a8d1a7a88296dba3bd32e94dfd96c766eba5de263874"
+  },
+  "job_id": "8310535",
+  "known_alias_policy": "source catalog + ScanNet physical space ID + exact media connected components",
+  "limitations": [
+    "No claim to exhaustive physical identity for datasets without official scene IDs"
+  ],
+  "samples": {
+    "dev": 3267,
+    "test": 5608,
+    "train": 13476
+  },
+  "seeds": [
+    20260922,
+    20260923
+  ],
+  "status": "PASS_FROZEN_SOURCE_ID_PHYSICAL_SPACE_AND_EXACT_MEDIA_RULES",
+  "test_payload_equal_to_original": true,
+  "worlds": {
+    "dev": 571,
+    "test": 1124,
+    "train": 2221
+  }
+}

@@ -1,0 +1,37 @@
+registry_version: "1.4"
+extends: operator_registry.v1.3.yaml@1.3
+change_policy: additive_versioned_extension
+operators:
+  - operator_id: VISIBLE_CLASS_REBIND
+    version: "1.4"
+    family: reference_frame_entity_binding
+    subtype: explicitly_refuted_visible_class_rebind
+    applicable_predicates: [VISIBLE_IN_FRAME]
+    forbidden_predicates: []
+    required_gt_fields: [explicit_positive_qa_fact, explicit_negative_qa_fact, shared_reference_frame]
+    required_rules: [EXPLICIT_POLARITY_REFUTATION]
+    changed_slots: [subject_id]
+    preserved_slots: [predicate, polarity, media_id, view_id, frame_id, time_scope, reference_frame, state_id, branch_id, scope]
+    allowed_levels: [L1]
+    allowed_modalities: [multi_view_images]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [EMBODIED-OBS]
+    proof_template: visible_class_rebind_explicit_negative_v1
+    rejection_checks: [same_reference_frame_required, distinct_classes_required, explicit_negative_donor_required, co_truth_must_be_false]
+
+  - operator_id: COUNT_CLASS_REBIND
+    version: "1.4"
+    family: reference_frame_entity_binding
+    subtype: exact_count_class_rebind
+    applicable_predicates: [COUNT]
+    forbidden_predicates: []
+    required_gt_fields: [two_exact_counts, shared_reference_frame, unequal_values]
+    required_rules: [EXACT_COUNT_FUNCTIONALITY]
+    changed_slots: [subject_id]
+    preserved_slots: [predicate, value, media_id, view_id, frame_id, time_scope, reference_frame, state_id, branch_id, scope]
+    allowed_levels: [L1]
+    allowed_modalities: [multi_view_images]
+    primary_track: GEO-TOPO
+    possible_secondary_tracks: [EMBODIED-OBS]
+    proof_template: count_class_rebind_exact_value_v1
+    rejection_checks: [same_reference_frame_required, distinct_classes_required, unequal_explicit_count_required, co_truth_must_be_false]

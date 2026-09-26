@@ -1,0 +1,6 @@
+dataset: omnispatial
+version: "1.0-draft"
+families: [direct_factual, context_first, perspective_conditioned, fully_specified_hypothetical]
+required_context: [reference_frame_when_perspective_dependent, branch_id_when_hypothetical]
+forbidden: [wrong_option_as_false, pointgraph_fact, commonsense_completion, metric_quantity]
+

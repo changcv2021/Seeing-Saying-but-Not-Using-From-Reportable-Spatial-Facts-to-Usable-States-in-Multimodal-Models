@@ -1,0 +1,113 @@
+schema_version: "sws-plan-v1"
+study_name: SpaceConflict_Spatial_World_State
+created_date: "2026-09-09"
+status: PLAN_NOT_EXECUTED
+history:
+  b0_run_id: b0_20260908_r1_launchfix1
+  source_root: artifacts/model_results/spaceconflict_b0/b0_20260908_r1_launchfix1
+  immutable: true
+models:
+  - id: qwen35_4b
+    repo: Qwen/Qwen3.5-4B
+    revision: RESOLVE_FROM_B0_LOCK
+    suggested_gpus_per_worker: 1
+    suggested_array_concurrency: 4
+  - id: qwen35_9b
+    repo: Qwen/Qwen3.5-9B
+    revision: RESOLVE_FROM_B0_LOCK
+    suggested_gpus_per_worker: 1
+    suggested_array_concurrency: 4
+  - id: qwen35_27b
+    repo: Qwen/Qwen3.5-27B
+    revision: RESOLVE_FROM_B0_LOCK
+    suggested_gpus_per_worker: 2
+    suggested_array_concurrency: 2
+inference:
+  dtype: bfloat16
+  do_sample: false
+  enable_thinking: false
+  max_new_tokens: 512
+  joint_large_map_max_new_tokens: 768
+  schema_normalization: UNIQUE_QUERY_VALUE_ALIAS_ONLY
+  duplicate_json_keys: INVALID
+  error_or_null_retry: false
+  preserve_raw: true
+panels:
+  legacy_b0_worlds: 12
+  new_world_target: 480
+  counts:
+    COUNT: 160
+    NONCOUNT_RELATION: 160
+    VIEW_FRAME_IDENTITY: 80
+    TIME_BRANCH: 80
+  splits:
+    discovery: 0.50
+    validation: 0.25
+    confirmation: 0.25
+  localization_world_target_per_level: 80
+  max_additional_localization_worlds: 320
+  split_unit: GLOBAL_UNDERLYING_WORLD_CLUSTER
+  old_exposed_worlds: DISCOVERY_ONLY
+  unavailable_stratum: REPORT_GAP_DO_NOT_REPLACE_WITH_OTHER_STRATUM
+review:
+  human_primary: ALL_MAIN_REAL_WORLDS
+  human_secondary_fraction: 0.25
+  human_secondary_all_mechanistic_key_cases: true
+  batch_worlds: 24
+  proxy_can_sign_verified: false
+experiments:
+  E0: {enabled: true, role: frozen_release_baseline, budget: inventory_separate}
+  E1: {enabled: true, worlds_cap: 480, calls_per_world_cap: 10}
+  E2: {enabled: true, worlds_cap: 480, calls_per_world_cap: 24}
+  E3: {enabled: true, worlds_cap: 240, calls_per_world_cap: 12}
+  E4: {enabled: true, worlds_cap: 240, calls_per_world_cap: 12}
+  E5: {enabled: true, worlds_cap: 160, calls_per_world_cap: 10}
+  E6: {enabled: true, worlds_cap: 144, calls_per_world_cap: 12}
+  E7: {enabled: true, worlds_cap: 96, calls_per_world_cap: 10}
+  E8: {enabled: true, worlds_cap: 320, calls_per_world_cap: 8}
+  E9: {enabled: true, requests_per_model_cap: 1000}
+whitebox:
+  enabled_conditionally: true
+  primary_model: qwen35_9b
+  structure_worlds_cap: 96
+  case_worlds_cap: 32
+  coarse_semantic_positions_cap: 6
+  final_module_position_combinations_cap: 12
+  requires_hook_equivalence: true
+  requires_reviewed_raw_pairs: true
+  required_positive_result: false
+  confirmation_requires_mechanism_lock: true
+  full_visual_token_all_layer_dump: false
+statistics:
+  cluster: underlying_world
+  paired_models_and_conditions: true
+  bootstrap_repetitions: 5000
+  seed: 20260909
+  confirmation_primary_tests: 6
+  multiple_testing: HOLM
+  keep_invalid_null_partial: true
+resource:
+  account: RESOLVE_FROM_AUTHORIZED_CURRENT_CONFIG
+  partition: RESOLVE_FROM_AUTHORIZED_CURRENT_CONFIG
+  qos: RESOLVE_FROM_AUTHORIZED_CURRENT_CONFIG
+  authorization_status: UNRESOLVED
+  total_gpu_hours_ceiling: null
+  suggested_total_concurrent_gpus: 12
+  actual_concurrent_gpus_ceiling: null
+  site_limits_verified: false
+  target_worker_hours: 3
+  max_worker_hours: 6
+  infrastructure_retry_max: 2
+  no_answer_based_retries: true
+  no_login_node_inference: true
+  budget_question_policy: SINGLE_CONSOLIDATED_IF_NOT_RECOVERABLE
+scope:
+  backbone_training: false
+  probe_fitting: true
+  new_model_family: false
+  public_upload: false
+  release_mutation: false
+  original_sealed_test: ONLY_WITH_VALID_EXISTING_RELEASE_AUTHORIZATION
+  new_confirmation: ISOLATED_UNTIL_REQUIRED_LOCK
+  per_phase_chatgpt_approval: false
+  stop_after_complete_review_package: true

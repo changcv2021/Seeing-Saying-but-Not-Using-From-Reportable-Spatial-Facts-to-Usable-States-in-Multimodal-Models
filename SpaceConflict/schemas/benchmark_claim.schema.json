@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spaceconflict.local/schemas/benchmark_claim.schema.json",
+  "type": "object",
+  "required": ["sample_id", "pair_id", "media", "claim", "label"],
+  "properties": {"sample_id": {"type": "string"}, "pair_id": {"type": "string"}, "media": {"type": "object"}, "claim": {"type": "string", "minLength": 1}, "label": {"enum": ["SUPPORTED", "CONTRADICTORY", "UNKNOWN"]}},
+  "additionalProperties": false
+}
+

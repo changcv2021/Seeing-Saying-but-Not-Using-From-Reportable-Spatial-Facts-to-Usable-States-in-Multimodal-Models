@@ -1,0 +1,24 @@
+dataset_name: ca_vqa
+contract_version: "1.1"
+extends: ca_vqa.yaml@1.0-draft
+change_policy: additive_versioned_extension
+world_unit: {keys: [capture_id], media_group: capture}
+media_grouping: [multi_view_images, ordered_multi_frame]
+native_gt_sources: [world.gt/instances.json, per_frame_instances, frame_order, camera_pose, qa]
+node_types: [WORLD, CAPTURE, FRAME, CAMERA, INSTANCE, STRUCTURE, CLASS]
+native_fact_rules: [explicit_instance_annotation, explicit_world_membership]
+qa_to_fact_rules: [binary, cardinality, mutually_exclusive_multichoice, view_dependent_relation]
+identity_policy: {merge_allowed_when: [stable_instance_id], merge_forbidden_when: [category_only, proximity_only]}
+reference_frame_policy: preserve_reference_and_support_frame_roles
+time_scope_policy: preserve_frame_scope
+state_branch_policy: observed_actual_only
+observability_policy: distinguish_world_annotation_frame_annotation_visibility_occlusion_out_of_view
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, EXISTS_IN_WORLD, ANNOTATED_IN_FRAME, VISIBLE_IN_FRAME, OCCLUDED, OUT_OF_VIEW, COUNT]
+authorized_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY, EXPLICIT_POLARITY_REFUTATION, EXACT_COUNT_FUNCTIONALITY]
+allowed_levels: [L1, L2, L3]
+allowed_tracks: [GEO-TOPO, XFORM-PROJ, IDENTITY, EMBODIED-OBS]
+valid_level_track_cells: {L1: [GEO-TOPO], L2: [GEO-TOPO, EMBODIED-OBS], L3: [XFORM-PROJ, IDENTITY, EMBODIED-OBS]}
+allowed_operators: [REFERENCE_SUPPORT_FRAME_SWAP, CURRENT_FRAME_VS_WORLD_SCOPE_ERROR, VISIBILITY_EXISTENCE_CONFUSION, ENTITY_INSTANCE_REBIND, VISIBLE_CLASS_REBIND, COUNT_CLASS_REBIND, COUNT_SCOPE_ERROR, VIEW_DEPENDENT_RELATION_TRANSPLANT, SUBJECT_OBJECT_SWAP]
+forbidden_tasks: [regression, metric_distance, metric_size, grounding_output]
+reject_conditions: [unobservable_full_world_fact, pose_or_depth_thresholding, unstable_cross_frame_identity, unrecorded_license, nonunique_multichoice_semantics]
+redistribution_policy: source_ids_and_local_generation_only

@@ -1,0 +1,14 @@
+language_plan_version: "1.0"
+pair_policy:
+  same_surface_blueprint: true
+  candidates_per_pair: 3
+  candidates_must_use_distinct_families: true
+  forbidden_features: [new_fact, new_attribute, new_causal_relation, implicit_required_context, epistemic_hedging, label_hint]
+families:
+  direct_factual: "{subject} {relation} {object}."
+  context_first: "{context}, {subject} {relation} {object}."
+  subject_first: "{subject}, {context}, {relation} {object}."
+  reference_object_first: "Relative to {object}, {subject} is {relation_phrase}."
+  relational_description: "The {subject_description} {relation} {object}."
+required_alignment_slots: [subject_id, predicate, object_id, view_id, reference_frame, time_scope, state_id, branch_id, count_scope]
+

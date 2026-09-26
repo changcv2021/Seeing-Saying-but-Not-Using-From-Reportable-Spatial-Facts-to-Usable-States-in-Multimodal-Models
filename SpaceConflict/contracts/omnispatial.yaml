@@ -1,0 +1,23 @@
+dataset_name: omnispatial
+contract_version: "1.0-draft"
+world_unit: {keys: [item_id_or_clip_id], media_group: claim_local}
+media_grouping: [single_image, continuous_video]
+native_gt_sources: [data.json, official_media]
+node_types: [ITEM, IMAGE, CLIP, ENTITY, EVENT, STATE]
+native_fact_rules: [claim_local_explicit_gt_only]
+qa_to_fact_rules: [whitelisted_mutually_exclusive_direction, exact_count, strict_order, unique_perspective_relation, fully_specified_hypothetical_state, unique_manipulation_result]
+identity_policy: {merge_allowed_when: [explicit_annotation_id], merge_forbidden_when: [model_pointgraph, appearance_only]}
+reference_frame_policy: explicit_unique_frame_only
+time_scope_policy: explicit_source_scope_only
+state_branch_policy: fully_specified_branch_only
+observability_policy: official_input_media_must_resolve
+allowed_predicates: [LEFT_OF, RIGHT_OF, FRONT_OF, BEHIND, ABOVE, BELOW, BEFORE, AFTER, COUNT]
+authorized_rules: [INVERSE_RELATION, SAME_SCOPE_EXCLUSIVITY, STRICT_ORDER_TRANSITIVITY]
+allowed_levels: [L1, L2, L3, L4]
+allowed_tracks: [GEO-TOPO, XFORM-PROJ, DYNAMIC, IDENTITY]
+valid_level_track_cells: {L1: [GEO-TOPO], L2: [GEO-TOPO], L3: [XFORM-PROJ, DYNAMIC], L4: [DYNAMIC, IDENTITY]}
+allowed_operators: [DIRECT_ENTITY_REBIND, RELATION_GRAPH_UNSAT, WRONG_VIEW_ATTRIBUTION, REFERENCE_FRAME_SWAP, TIME_STATE_MISBIND, WRONG_TARGET_UPDATE, BRANCH_LEAKAGE]
+forbidden_tasks: [wrong_option_only, traffic_commonsense, ungrounded_iq_pattern, nonunique_motion_prediction, metric_time, speed, distance, collision_without_oracle, path_planning_without_environment_graph, model_pointgraph_as_gt]
+reject_conditions: [certificate_unavailable, license_conflict_unresolved]
+redistribution_policy: blocked_until_readme_huggingface_and_individual_media_terms_are_reconciled
+

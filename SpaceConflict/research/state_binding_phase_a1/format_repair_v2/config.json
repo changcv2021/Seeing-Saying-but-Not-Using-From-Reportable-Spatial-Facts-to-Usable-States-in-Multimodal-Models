@@ -1,0 +1,72 @@
+{
+  "run_id": "phase_a1_20260907_format_v2",
+  "seed": 20260907,
+  "phase": "PHASE_A1_DIAGNOSTIC_REPAIR_ONLY",
+  "project": "./SpaceConflict",
+  "root": "artifacts/model_results/state_binding_phase_a1/phase_a1_20260907_format_v2",
+  "phase_a_root": "artifacts/model_results/state_binding_phase_a_v2/phase_a_20260907_r1",
+  "phase_a_code": "./SpaceConflict/research/state_binding_phase_a_v2",
+  "phase_a_csv": "./phase1/for_gpt/03_ALL_DISCOVERY_RESPONSES.csv",
+  "campaign": "artifacts/model_results/qwen35_scale_512_20260906",
+  "models": [
+    "qwen35_4b",
+    "qwen35_9b",
+    "qwen35_27b"
+  ],
+  "max_new_tokens": 512,
+  "enable_thinking": false,
+  "do_sample": false,
+  "prompt_version": "a1_value_only_v1",
+  "parser_version": "a1_value_alias_v2",
+  "bootstrap_repetitions": 2000,
+  "schema_gate_minimum": 0.95,
+  "schema_gate_scope": "EACH_MODEL_EACH_INTERFACE_EXTRACTABLE_VALIDITY; original strict compliance reported separately",
+  "setup_scope": "SYNTHETIC_EXPLICIT_TABLES_ONLY_NO_REAL_MEDIA_OR_WORLDS",
+  "panel_policy": "ALL_16_PREVIOUS_MECHANISM_GROUPS_REVIEWED; eligible only by input/provenance review, never model outcomes; same panel all models",
+  "review_policy": "SOURCE_GOLD_REPLAY_PLUS_ACTUAL_PROCESSOR_MEDIA_AND_QUERY_REVIEW; PENDING_REVIEW_EXCLUDED_FROM_MAIN_ATTRIBUTION",
+  "primary_stratum": "L4_PRE_POST_NONDEGENERATE_COUNT",
+  "secondary_stratum": "L4_PRE_POST_BINARY_RELATION",
+  "low_order_control": "L1_OBJECT_ARGUMENT",
+  "setup_budget": {
+    "gpu_hours_hard_max": 2,
+    "account": "YOUR_ACCOUNT",
+    "qos": "allocated",
+    "partition": "gpu",
+    "max_concurrent_new_gpu_jobs": 1
+  },
+  "mechanism_budget": {
+    "status": "NOT_AUTHORIZED_FOR_BATCH_UNTIL_SETUP_MEASURE_AND_REVIEW",
+    "automatic_submit": false
+  },
+  "allow_official_test": false,
+  "allow_confirmation": false,
+  "allow_training": false,
+  "allow_whitebox": false,
+  "allow_new_models": false,
+  "overwrite_history": false,
+  "stop_after_phase_a1": true,
+  "source_a1_root": "artifacts/model_results/state_binding_phase_a1/phase_a1_20260907_r1",
+  "source_a1_code": "./SpaceConflict/research/state_binding_phase_a1",
+  "source_a1_config": "./SpaceConflict/research/state_binding_phase_a1/configs/a1.json",
+  "format_repair_code": "./SpaceConflict/research/state_binding_phase_a1/format_repair_v2",
+  "analysis_type": "EXPLICIT_SETUP_RESPONSE_REANALYSIS_NOT_NEW_GENERATION",
+  "prompt_changed": false,
+  "format_policy": {
+    "version": "a1_value_alias_v2",
+    "canonical_value_key": "value",
+    "accepted_single_value_keys": [
+      "value",
+      "query_value"
+    ],
+    "reject_multiple_value_keys": true,
+    "extra_fields_allowed": false,
+    "numeric_string_coercion": false,
+    "label_case_coercion": false,
+    "free_text_extraction": false,
+    "gold_used_to_select_field": false,
+    "record_original_strict_metrics": true,
+    "posthoc_setup_only": true,
+    "user_authorization": "你修改下这个问题，不能因为输出格式出问题"
+  },
+  "gpu_generation_requests": 0
+}

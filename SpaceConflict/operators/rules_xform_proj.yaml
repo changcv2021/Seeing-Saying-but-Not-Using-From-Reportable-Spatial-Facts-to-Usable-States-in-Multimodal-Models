@@ -1,0 +1,6 @@
+rules_version: "1.0"
+rules:
+  - {rule_id: SAME_VIEW_RELATION_EXCLUSIVITY, kind: contradiction, required_context: [view_id, reference_frame]}
+  - {rule_id: EXPLICIT_REFERENCE_TRANSFORM, kind: derivation, requires_source_transform: true}
+forbidden: [pixel_inferred_camera_transform, implicit_reference_frame]
+

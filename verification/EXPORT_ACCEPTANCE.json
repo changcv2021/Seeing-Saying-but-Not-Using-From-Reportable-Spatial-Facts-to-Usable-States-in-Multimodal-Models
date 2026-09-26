@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "files": 1209,
+  "bytes": 657607201,
+  "privacy_findings": [],
+  "syntax_errors": [],
+  "json_errors": [],
+  "commands": [
+    {
+      "name": "data_validation",
+      "exit_code": 0,
+      "output": "{\n  \"status\": \"PASS\",\n  \"splits\": {\n    \"train\": {\n      \"inputs\": 13476,\n      \"worlds\": 2221,\n      \"levels\": {\n        \"L4\": 1040,\n        \"L1\": 10072,\n        \"L3\": 1188,\n        \"L2\": 1176\n      },\n      \"labels\": {\n        \"SUPPORTED\": 6673,\n        \"CONTRADICTORY\": 6673,\n        \"UNKNOWN\": 130\n      }\n    },\n    \"dev\": {\n      \"inputs\": 3267,\n      \"worlds\": 571,\n      \"levels\": {\n        \"L4\": 403,\n        \"L2\": 294,\n        \"L1\": 2334,\n        \"L3\": 236\n      },\n      \"labels\": {\n        \"SUPPORTED\": 1610,\n        \"CONTRADICTORY\": 1610,\n        \"UNKNOWN\": 47\n      }\n    },\n    \"test\": {\n      \"inputs\": 5608,\n      \"worlds\": 1124,\n      \"levels\": {\n        \"L4\": 516,\n        \"L1\": 3654,\n        \"L3\": 976,\n        \"L2\": 462\n      },\n      \"labels\": {\n        \"CONTRADICTORY\": 1771,\n        \"SUPPORTED\": 1771,\n        \"UNKNOWN\": 2066\n      }\n    },\n    \"full_benchmark\": {\n      \"inputs\": 24196\n    }\n  },\n  \"world_disjoint\": true,\n  \"public_requests_gold_free\": true,\n  \"note\": \"The historical alias-map audit is preserved separately; no new world grouping was inferred.\"\n}\n"
+    },
+    {
+      "name": "parser_regression",
+      "exit_code": 0,
+      "output": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.010s\n\nOK\n"
+    },
+    {
+      "name": "sampling_plan_regression",
+      "exit_code": 0,
+      "output": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.024s\n\nOK\n"
+    },
+    {
+      "name": "preserved_exposure_regression",
+      "exit_code": 0,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.095s\n\nOK\n"
+    },
+    {
+      "name": "sft_metric_reproduction",
+      "exit_code": 0,
+      "output": "{\"status\": \"PASS_EXACT_METRIC_REPRODUCTION\", \"models\": 13, \"inputs_per_model\": 5608}\n"
+    }
+  ],
+  "semantic_invariants": [
+    {
+      "split": "train",
+      "n": 13476,
+      "gold_exact_equal": true,
+      "task_fields_equal": true
+    },
+    {
+      "split": "dev",
+      "n": 3267,
+      "gold_exact_equal": true,
+      "task_fields_equal": true
+    },
+    {
+      "split": "test",
+      "n": 5608,
+      "gold_exact_equal": true,
+      "task_fields_equal": true
+    },
+    {
+      "split": "full_multimodel_20260908_v1",
+      "n": 24196,
+      "gold_exact_equal": true,
+      "task_fields_equal": true
+    }
+  ],
+  "training_targets": [
+    {
+      "file": "artifacts/model_results/pss_20260922_v1/approved_v2/grounded_state_v4/train/state.jsonl",
+      "records": 10631,
+      "targets_and_ids_equal": true
+    },
+    {
+      "file": "artifacts/model_results/pss_20260922_v1/approved_v2/partial_cot_approved_v1/train/cot.jsonl",
+      "records": 13476,
+      "targets_and_ids_equal": true
+    },
+    {
+      "file": "artifacts/model_results/pss_20260922_v1/approved_v2/supervision_v3/train/answer.jsonl",
+      "records": 13476,
+      "targets_and_ids_equal": true
+    },
+    {
+      "file": "artifacts/model_results/pss_20260922_v1/approved_v2/trajectory_aux_v1/train/state.jsonl",
+      "records": 408,
+      "targets_and_ids_equal": true
+    }
+  ],
+  "source_media_included": false,
+  "model_weights_included": false,
+  "git_history_included": false,
+  "external_publish_performed": false,
+  "api_calls_performed": false,
+  "gpu_retraining_performed": false,
+  "scope": "Known author identifiers, affiliation/internal paths/endpoints and credential literals; this scan is not a guarantee against every possible re-identification vector.",
+  "omitted": [
+    "Source images/videos",
+    "Model weights",
+    "Private credential files",
+    "Git history",
+    "Activations",
+    "Unbounded scheduler logs"
+  ]
+}
