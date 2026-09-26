@@ -1,6 +1,6 @@
 # Training methods and immutable exposure
 
-Actual training code: `phase8/formal_training_v4/`; actual supervision targets: the four files named in its exported `PLAN.json.source_hashes`. State serialization and processor logic: `phase8/execution_pss_v2/`. Preserved-L4 extension: `phase8/pss_full_l4_preserved_v1/`.
+Actual training code: `training/formal_training_v4/`; actual supervision targets: the four files named in its exported `PLAN.json.source_hashes`. State serialization and processor logic: `training/execution_pss_v2/`. Preserved-L4 extension: `training/pss_full_l4_preserved_v1/`.
 
 | Setting | Five original methods |
 |---|---|

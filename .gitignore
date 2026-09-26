@@ -18,6 +18,7 @@ checkpoints/
 *.out
 *.err
 .DS_Store
+.pytest_cache/
 /_release_build_private*/
 /auth/
 hosts.yml

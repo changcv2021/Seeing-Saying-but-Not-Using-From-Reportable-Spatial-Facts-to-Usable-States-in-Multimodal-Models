@@ -14,4 +14,4 @@ Source media is excluded. Users must obtain upstream assets under their own auth
 - OmniSpatial: https://github.com/qizekun/OmniSpatial
 - EmbodiedScan: https://github.com/OpenRobotLab/EmbodiedScan
 
-Retain public upstream attribution and required copyright/license notices. Do not erase third-party author credits for anonymous review. Dependencies are not bundled or relicensed. See `THIRD_PARTY_NOTICES.md` and `SpaceConflict/datasets.yaml`.
+Retain public upstream attribution and required copyright/license notices. Do not erase third-party author credits for anonymous review. Dependencies are not bundled or relicensed. See `THIRD_PARTY_NOTICES.md` and `dataset/datasets.yaml`.

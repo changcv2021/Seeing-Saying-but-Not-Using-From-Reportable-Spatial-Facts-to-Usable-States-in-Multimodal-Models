@@ -6,7 +6,7 @@ The standard-library CPU helpers validate request/gold IDs and split disjointnes
 
 ## Historical research implementations
 
-The relative `SpaceConflict/`, `phase4/`–`phase8/` layout is intentional: existing imports refer to sibling phases. Historical source snapshots, partial experiments, parser versions and engineering dependencies are retained where required. They are not all active experimental methods.
+The public layout is functional: `dataset/`, `training/`, `evaluation/` and `experiments/`. Cross-directory imports and active path templates have been relocated together; there are no legacy phase-root symlinks. Historical implementations and dependencies remain versioned where required; they are not all active methods. See `docs/LAYOUT.md` for the migration map.
 
 Absolute project paths were relocated to `.`; persistent data paths to `artifacts/`; model paths to `models/`; remaining external caches to `external/`. Run historical scripts from this package root. The benchmark dataset itself contains only relative media locators, no source images.
 
@@ -19,6 +19,8 @@ Private API endpoints were replaced by an invalid placeholder; credentials were 
 Privacy relocation changes serialized data/code bytes. `provenance/EXPORT_MANIFEST.json` records both historical source hash and exported-file hash. Historical training `PLAN.json` and freeze receipts retain their historical integrity evidence; they are not rewritten to falsely assert the modified package was the original accepted run. Training/GPU inference requires a **new local output directory and freeze**, recomputed source/code hashes, legal media resolution and a fresh processor/engineering smoke. Do not blindly run orchestration scripts expecting the original laboratory filesystem.
 
 ## Not claimed complete by this package
+
+The layout migration does not rewrite frozen requests/gold, training targets, result tables or historical receipts. Embedded old path/hash references remain evidence of original runs, not a passing freeze for relocated code. Data files stay under `artifacts/`; construction release files move with `dataset/` while retaining their exact bytes.
 
 - GPU retraining or fresh evaluation of every model from the anonymized tree.
 - A fully portable, one-command replacement for every historical scheduler controller.

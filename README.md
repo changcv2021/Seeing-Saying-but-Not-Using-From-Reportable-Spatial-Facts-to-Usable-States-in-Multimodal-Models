@@ -8,16 +8,19 @@ This repository is hosted publicly under `changcv2021`; it is not anonymous host
 
 ## What is included
 
+Start with [dataset construction](dataset/README.md), [SFT training](training/README.md), [evaluation](evaluation/README.md), or [research experiments](experiments/README.md). Code is organized by function, not by development-stage numbers.
+
 | Location | Content |
 |---|---|
-| `SpaceConflict/src/spaceconflict/` | Construction, source adapters, graphs, transformations and verifiers |
-| `SpaceConflict/contracts/`, `schemas/`, `operators/` | Versioned construction rules |
-| `SpaceConflict/scripts/` | Existing acquisition, media preparation and multi-model evaluation implementations |
-| `phase8/formal_training_v4/` | Actual five-method, two-seed, update-matched training implementation |
-| `phase8/pss_full_l4_preserved_v1/` | Additive preserved-L4 training implementation and exposure audit |
-| `phase8/execution_pss_v2/` | Training-target preparation, state serialization, processor and split code |
-| `phase8/label_rescore_v3/` | Final held-out label parser; v2 and strict predecessors retained |
-| `phase4/`–`phase7/`, `SpaceConflict/research/` | Historical behavior, representation and intervention code |
+| `dataset/src/spaceconflict/` | Construction, source adapters, graphs, transformations and verifiers |
+| `dataset/contracts/`, `dataset/schemas/`, `dataset/operators/` | Versioned construction rules |
+| `dataset/scripts/` | Existing acquisition, media preparation and multi-model evaluation implementations |
+| `training/formal_training_v4/` | Actual five-method, two-seed, update-matched training implementation |
+| `training/pss_full_l4_preserved_v1/` | Additive preserved-L4 training implementation and exposure audit |
+| `training/execution_pss_v2/` | Training-target preparation, state serialization, processor and split code |
+| `evaluation/label_rescore_v3/` | Final held-out label parser; v2 and strict predecessors retained |
+| `evaluation/heldout_test_v1/`, `evaluation/heldout_test_full_pss_v1/` | Held-out inference for trained adapters |
+| `experiments/` | Spatial world-state, behavioral closure, sequential-state and state-intervention studies |
 | `artifacts/model_results/full_multimodel_20260908_v1/` | Full benchmark: 24,196 requests and public gold |
 | `artifacts/model_results/pss_20260922_v1/approved_v2/` | Actual frozen train/dev/test, supervision, schedules and exposure metadata |
 | `results/sft/` | Base + six methods × two seeds: aggregate scores and tables only |
@@ -36,16 +39,18 @@ From this directory, with Python 3.10+:
 
 ```bash
 python tools/validate_data.py
-python tools/score.py --help
+python evaluation/score.py --help
 ```
 
 After generating your own predictions (not bundled), score them with:
 
 ```bash
-python tools/score.py --gold artifacts/model_results/pss_20260922_v1/approved_v2/data/test/private_gold.jsonl --predictions outputs/my_model_predictions.jsonl
+python evaluation/score.py --gold artifacts/model_results/pss_20260922_v1/approved_v2/data/test/private_gold.jsonl --predictions outputs/my_model_predictions.jsonl
 ```
 
 The optional historical reproduction tool requires `--predictions-dir` containing the original 13 runs supplied separately. Export-time verification records are retained as historical evidence; they do not imply those raw outputs are bundled in this slim package.
+
+`tools/score.py` remains a compatibility entry point. See [layout and migration notes](docs/LAYOUT.md) for former directory names and frozen-record boundaries.
 
 ## Training and model evaluation
 

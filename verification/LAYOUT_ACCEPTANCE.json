@@ -1,0 +1,70 @@
+{
+  "status": "PASS_FUNCTIONAL_LAYOUT",
+  "parent_commit": "9f20b0def9a54c4923439e2fda8f551f4607e3bb",
+  "moved_files": 1074,
+  "preserved_historical_files": 66,
+  "manifest_exception": "Only exported locations/hashes refreshed; original source hashes preserved.",
+  "frozen_dataset_training_results_unchanged": true,
+  "python_syntax_files": 642,
+  "shell_syntax_files": 316,
+  "changed_or_added_content_files": 331,
+  "privacy_check": "Changed text rescanned; other content hash-verified.",
+  "commands": [
+    {
+      "name": "data_validation",
+      "exit_code": 0
+    },
+    {
+      "name": "parser",
+      "exit_code": 0,
+      "tests": 8
+    },
+    {
+      "name": "sampler",
+      "exit_code": 0,
+      "tests": 6
+    },
+    {
+      "name": "preserved_exposure",
+      "exit_code": 0,
+      "tests": 7
+    },
+    {
+      "name": "layout_imports",
+      "exit_code": 0,
+      "tests": 5
+    },
+    {
+      "name": "score_help",
+      "exit_code": 0
+    },
+    {
+      "name": "compatibility_help",
+      "exit_code": 0
+    },
+    {
+      "name": "state_contracts",
+      "exit_code": 0,
+      "tests": 30
+    },
+    {
+      "name": "construction_unit_subset",
+      "exit_code": 0
+    },
+    {
+      "name": "all_13_score_equivalence",
+      "exit_code": 0
+    }
+  ],
+  "scoring_function_ast_unchanged": true,
+  "scoring_models_replayed": 13,
+  "inputs_per_model": 5608,
+  "metrics_exactly_equal_to_published_summary": true,
+  "raw_predictions_remain_private": true,
+  "gpu_training_or_inference_performed": false,
+  "limitations": [
+    "Legacy construction tests requiring unbundled discovery reports were not run.",
+    "Diagnostic input datasets remain omitted; no GPU or external API evaluation was run.",
+    "Historical freeze receipts are not acceptance for a relocated GPU run."
+  ]
+}

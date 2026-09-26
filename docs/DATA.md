@@ -2,7 +2,7 @@
 
 Full benchmark requests and gold: `artifacts/model_results/full_multimodel_20260908_v1/` (24,196 inputs). Actual SFT split: `artifacts/model_results/pss_20260922_v1/approved_v2/data/{train,dev,test}/`. The train/test sizes are 13,476/5,608; the verifier reports the actual dev size and exclusions without assuming the approved split is the full benchmark.
 
-Each request retains its sample and pair IDs, level, claim, hypothetical intervention when present, media order/roles, processor presentation settings and hash. Gold is in a separate published file with labels, world IDs and available provenance. Construction-level pairs and local-generation artifacts remain in `SpaceConflict/release/production_available_v10/` and `SpaceConflict/l4/v3_3/release/`.
+Each request retains its sample and pair IDs, level, claim, hypothetical intervention when present, media order/roles, processor presentation settings and hash. Gold is in a separate published file with labels, world IDs and available provenance. Construction-level pairs and local-generation artifacts remain in `dataset/release/production_available_v10/` and `dataset/l4/v3_3/release/`.
 
 L1–L3 and L4 were constructed through different versioned pipelines. Do not retrofit a new rule or infer missing gold from images. Construction code/contracts specify accepted source facts, transformations, verifier checks and UNKNOWN evidence gaps.
 

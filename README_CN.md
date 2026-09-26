@@ -9,7 +9,10 @@
 - `README.md`：英文项目首页与目录导航。
 - `artifacts/model_results/full_multimodel_20260908_v1/`：24,196 条完整 benchmark 的题目及答案。
 - `artifacts/model_results/pss_20260922_v1/approved_v2/data/test/private_gold.jsonl`：5,608 条固定 test 的公开答案。文件历史命名仍有 private，但本包明确公开。
-- `phase8/`：真实训练、SFT 数据准备、采样、推理、评分源代码。
+- `dataset/`：数据集构建、源适配器、schema、变换规则及验证器。
+- `training/`：SFT 数据准备、采样、训练和 preserved-L4 扩展。
+- `evaluation/`：held-out 推理、标签解析与评分。
+- `experiments/`：按研究内容命名的行为诊断与机制实验代码。
 - `results/sft/`：13 组 test 的汇总结果，不含逐题回答和逐题评分记录。
 - `verification/`：首次完整导出的历史验收，以及本次精简包的数据、完整性与接口检查记录。
 
@@ -17,7 +20,9 @@
 
 按要求移除模型逐题回答/评分记录，以及诊断实验输入和答案。完整 benchmark 题目与 gold、固定 train/dev/test、训练监督数据、代码和结果汇总表不变。原研究项目中的实验记录未删除。
 
-诊断代码保留，但相关诊断数据不随包提供。历史 13 组结果曾从原始回答重算验收；如需再次复现，须另外提供原始预测目录，不能仅凭本精简包重算这些历史结果。使用者仍可用 `tools/score.py` 对自己生成的预测评分。
+诊断代码保留，但相关诊断数据不随包提供。历史 13 组结果曾从原始回答重算验收；如需再次复现，须另外提供原始预测目录，不能仅凭本精简包重算这些历史结果。使用者可用 `evaluation/score.py` 对自己生成的预测评分；原 `tools/score.py` 入口仍兼容。
+
+目录已按功能整理，不再以 phase 编号作为入口。旧目录与新目录的对应关系、冻结文件保留规则见 [LAYOUT.md](docs/LAYOUT.md)。本轮只整理工程，不改变数据划分、监督目标、指标定义或模型结果。
 
 ## 隐私处理范围
 

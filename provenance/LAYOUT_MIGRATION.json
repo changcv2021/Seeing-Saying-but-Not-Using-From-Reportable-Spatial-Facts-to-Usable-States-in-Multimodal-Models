@@ -1,0 +1,50 @@
+{
+  "parent_commit": "9f20b0def9a54c4923439e2fda8f551f4607e3bb",
+  "directory_mapping": [
+    {
+      "old": "phase8/heldout_test_full_pss_v1",
+      "new": "evaluation/heldout_test_full_pss_v1"
+    },
+    {
+      "old": "phase8/heldout_test_v1",
+      "new": "evaluation/heldout_test_v1"
+    },
+    {
+      "old": "phase8/label_rescore_v2",
+      "new": "evaluation/label_rescore_v2"
+    },
+    {
+      "old": "phase8/label_rescore_v3",
+      "new": "evaluation/label_rescore_v3"
+    },
+    {
+      "old": "phase4",
+      "new": "experiments/spatial_world_state"
+    },
+    {
+      "old": "phase5",
+      "new": "experiments/behavioral_closure"
+    },
+    {
+      "old": "phase6",
+      "new": "experiments/sequential_state"
+    },
+    {
+      "old": "phase7",
+      "new": "experiments/state_interventions"
+    },
+    {
+      "old": "phase8",
+      "new": "training"
+    },
+    {
+      "old": "SpaceConflict",
+      "new": "dataset"
+    }
+  ],
+  "scoring_entry": {
+    "implementation": "evaluation/score.py",
+    "compatibility": "tools/score.py"
+  },
+  "historical_records_not_rewritten": true
+}

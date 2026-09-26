@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+module load python/3.12.11
+export PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS="${SLURM_CPUS_PER_TASK}" OPENBLAS_NUM_THREADS="${SLURM_CPUS_PER_TASK}"
+exec python -B './experiments/spatial_world_state/execution_sws_v1/holdout_repair_v1/rebuild_val.py' --resume "$@"
