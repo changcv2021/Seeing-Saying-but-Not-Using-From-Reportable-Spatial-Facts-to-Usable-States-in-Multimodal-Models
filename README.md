@@ -1,7 +1,4 @@
 # Seeing, Saying, but Not Using: From Reportable Spatial Facts to Usable States in Multimodal Models
-<a href="https://arxiv.org/abs/2610.02876">
-  <img src="https://img.shields.io/badge/READ%20PAPER-arXiv%202610.02876-DC2626?style=for-the-badge&amp;labelColor=991B1B" height="38" alt="Read Paper">
-</a>
 
 **SpaceConflict**: code, benchmark questions and public gold, training supervision, and aggregate results for a four-level spatial-conflict benchmark and structured-state fine-tuning.
 
